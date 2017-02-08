@@ -1,0 +1,95 @@
+elementsList:
+- {displayShortname: eNB, enclosingDomain: RAN, tosca_id: com.trinity.ran.enodeb}
+- {displayShortname: SIAD, enclosingDomain: RAN, tosca_id: com.trinity.ran.siad}
+- {displayShortname: NodeB, enclosingDomain: RAN, tosca_id: com.trinity.ran.nb}
+- {displayShortname: MGCF eMSC, enclosingDomain: RAN, tosca_id: com.trinity.ran.emsc}
+- {displayShortname: RNC, enclosingDomain: RAN, tosca_id: com.trinity.ran.rnc}
+- {displayShortname: MGW, enclosingDomain: RAN, tosca_id: com.trinity.ran.mgw}
+- {displayShortname: SS7 GPORT, enclosingDomain: RAN, tosca_id: com.trinity.ran.ss7_gport}
+- {displayShortname: MSN, enclosingDomain: RAN, tosca_id: com.trinity.ran.msn}
+- {displayShortname: E-SMLC, enclosingDomain: RAN, tosca_id: com.trinity.ran.e_smlc}
+- {displayShortname: SGSN-S4, enclosingDomain: EPC, tosca_id: com.trinity.epc.sgsn_s4}
+- {displayShortname: MME, enclosingDomain: EPC, tosca_id: com.trinity.epc.mme}
+- {displayShortname: P_LRF (RDF), enclosingDomain: EPC, tosca_id: com.trinity.epc.p_lrf}
+- {displayShortname: GMLC, enclosingDomain: EPC, tosca_id: com.trinity.epc.gmlc}
+- {displayShortname: PCEF, enclosingDomain: EPC, tosca_id: com.trinity.epc.pcef}
+- {displayShortname: SDG, enclosingDomain: EPC, tosca_id: com.trinity.epc.sdg}
+- {displayShortname: P-GW, enclosingDomain: EPC, tosca_id: com.trinity.epc.p_gw}
+- {displayShortname: S-GW, enclosingDomain: EPC, tosca_id: com.trinity.epc.s_gw}
+- {displayShortname: PAS, enclosingDomain: EPC, tosca_id: com.trinity.epc.pas}
+- {displayShortname: PCRF, enclosingDomain: EPC, tosca_id: com.trinity.epc.pcrf}
+- {displayShortname: MIND, enclosingDomain: EPC, tosca_id: com.trinity.epc.mind}
+- {displayShortname: APN DNS, enclosingDomain: EPC, tosca_id: com.trinity.epc.apn_dns}
+- {displayShortname: DRA EPC, enclosingDomain: EPC, tosca_id: com.trinity.epc.dra_epc}
+- {displayShortname: HSS EPC, enclosingDomain: EPC, tosca_id: com.trinity.epc.hss_epc}
+- {displayShortname: HLR, enclosingDomain: EPC, tosca_id: com.trinity.epc.hlr}
+- {displayShortname: CPM, enclosingDomain: EPC, tosca_id: com.trinity.epc.cpm}
+- {displayShortname: P-LRF/RDF, enclosingDomain: EPC, tosca_id: com.trinity.epc.p_lrf_sup}
+- {displayShortname: SBC, enclosingDomain: USP, tosca_id: com.trinity.usp.sbc}
+- {displayShortname: ATGW, enclosingDomain: USP, tosca_id: com.trinity.usp.atgw}
+- {displayShortname: IWF, enclosingDomain: USP, tosca_id: com.trinity.usp.iwf}
+- {displayShortname: ATCF, enclosingDomain: USP, tosca_id: com.trinity.usp.atcf}
+- {displayShortname: P-CSCF, enclosingDomain: USP, tosca_id: com.trinity.usp.p_cscf}
+- {displayShortname: Transcoder, enclosingDomain: USP, tosca_id: com.trinity.usp.transcoder}
+- {displayShortname: I-SBC, enclosingDomain: USP, tosca_id: com.trinity.usp.i_sbc}
+- {displayShortname: SCC-AS, enclosingDomain: USP, tosca_id: com.trinity.usp.scc_as}
+- {displayShortname: EATF, enclosingDomain: USP, tosca_id: com.trinity.usp.eatf}
+- {displayShortname: TAS, enclosingDomain: USP, tosca_id: com.trinity.usp.tas_cts}
+- {displayShortname: S-CSCF, enclosingDomain: USP, tosca_id: com.trinity.usp.s_cscf}
+- {displayShortname: E-CSCF (911), enclosingDomain: USP, tosca_id: com.trinity.usp.e_cscf}
+- {displayShortname: I-CSCF, enclosingDomain: USP, tosca_id: com.trinity.usp.i_cscf}
+- {displayShortname: TF / BGCF, enclosingDomain: USP, tosca_id: com.trinity.usp.tf_bgcf}
+- {displayShortname: MGC-8, enclosingDomain: USP, tosca_id: com.trinity.usp.mgc8}
+- {displayShortname: MRF, enclosingDomain: USP, tosca_id: com.trinity.usp.mrf}
+- {displayShortname: USP DNS, enclosingDomain: USP, tosca_id: com.trinity.usp.dns}
+- {displayShortname: DRA IMS, enclosingDomain: USP, tosca_id: com.trinity.usp.dra_ims}
+- {displayShortname: ENUM, enclosingDomain: USP, tosca_id: com.trinity.usp.enum}
+- {displayShortname: HSS IMS, enclosingDomain: USP, tosca_id: com.trinity.usp.hss_ims}
+- {displayShortname: CCF, enclosingDomain: "", tosca_id: com.trinity."".dc1.ccf}
+- {displayShortname: BGF, enclosingDomain: "", tosca_id: com.trinity."".dc1.bgf}
+- {displayShortname: vMS, enclosingDomain: "", tosca_id: com.trinity."".dc1.ms}
+- {displayShortname: vNS, enclosingDomain: "", tosca_id: com.trinity."".dc1.ns}
+- {displayShortname: vAS, enclosingDomain: "", tosca_id: com.trinity."".dc1.as}
+- {displayShortname: vA-SBG, enclosingDomain: "", tosca_id: com.trinity."".dc1.a_sbg}
+- {displayShortname: vDBE, enclosingDomain: "", tosca_id: com.trinity."".dc1.dbe}
+- {displayShortname: vN-SBG, enclosingDomain: "", tosca_id: com.trinity."".dc1.n_sbg}
+- {displayShortname: CCF, enclosingDomain: "", tosca_id: com.trinity."".dc2.ccf}
+- {displayShortname: BGF, enclosingDomain: "", tosca_id: com.trinity."".dc2.bgf}
+- {displayShortname: vMS, enclosingDomain: "", tosca_id: com.trinity."".dc2.ms}
+- {displayShortname: vNS, enclosingDomain: "", tosca_id: com.trinity."".dc2.ns}
+- {displayShortname: vAS, enclosingDomain: "", tosca_id: com.trinity."".dc2.as}
+- {displayShortname: vA-SBG, enclosingDomain: "", tosca_id: com.trinity."".dc2.a_sbg}
+- {displayShortname: vDBE, enclosingDomain: "", tosca_id: com.trinity."".dc2.dbe}
+- {displayShortname: vN-SBG, enclosingDomain: "", tosca_id: com.trinity."".dc2.n_sbg}
+- {displayShortname: PSX SIP, enclosingDomain: VNI, tosca_id: com.trinity.vni.sip_psx}
+- {displayShortname: PSX Policy, enclosingDomain: VNI, tosca_id: com.trinity.vni.policy_psx}
+- {displayShortname: IPBE, enclosingDomain: VNI, tosca_id: com.trinity.vni.ipbe}
+- {displayShortname: GSX, enclosingDomain: VNI, tosca_id: com.trinity.vni.gsx}
+- {displayShortname: BVoIP AS, enclosingDomain: VNI, tosca_id: com.trinity.vni.bvoip_as}
+- {displayShortname: NGBE, enclosingDomain: VNI, tosca_id: com.trinity.vni.ngbe}
+- {displayShortname: VoLTE UE, enclosingDomain: RAN, tosca_id: com.trinity.ue1}
+- {displayShortname: 3G UE, enclosingDomain: RAN, tosca_id: com.trinity.ue2}
+- {displayShortname: Trinity UE-A, enclosingDomain: "", tosca_id: com.trinity.ue3}
+- {displayShortname: Trinity UE-B, enclosingDomain: "", tosca_id: com.trinity.ue4}
+- {displayShortname: VNI UE-PBX, enclosingDomain: VNI, tosca_id: com.trinity.ue5}
+- {displayShortname: PSTN, enclosingDomain: VNI, tosca_id: com.trinity.ue6}
+- {displayShortname: Intrado SBC, enclosingDomain: NotApplicable, tosca_id: com.trinity.intrado_sbc}
+- {displayShortname: FMCC, enclosingDomain: NotApplicable, tosca_id: com.trinity.fmcc}
+- {displayShortname: ESGW, enclosingDomain: NotApplicable, tosca_id: com.trinity.esgw}
+- {displayShortname: PSAP, enclosingDomain: NotApplicable, tosca_id: com.trinity.psap}
+- {displayShortname: IPFR User, enclosingDomain: NotApplicable, tosca_id: com.trinity.ipfr_user}
+- {displayShortname: PBX, enclosingDomain: NotApplicable, tosca_id: com.trinity.pbx}
+- {displayShortname: IPBE, enclosingDomain: NotApplicable, tosca_id: com.trinity.ipbe}
+- {displayShortname: MGCF/eMSC, enclosingDomain: NotApplicable, tosca_id: com.trinity.mgcf_msc}
+- {displayShortname: 3G UE, enclosingDomain: NotApplicable, tosca_id: com.trinity.2G_3G_Endpoint}
+- {displayShortname: IPBE, enclosingDomain: NotApplicable, tosca_id: com.trinity.vni.pstn_tdm}
+- {displayShortname: PSTN, enclosingDomain: NotApplicable, tosca_id: com.trinity.pstn}
+- {displayShortname: AT&T LNS Switch, enclosingDomain: NotApplicable, tosca_id: com.trinity.att_lns_switch}
+- {displayShortname: SGX, enclosingDomain: NotApplicable, tosca_id: com.trinity.sgx}
+- {displayShortname: CNAM DB, enclosingDomain: NotApplicable, tosca_id: com.trinity.cnam_db}
+- {displayShortname: LEA, enclosingDomain: VNI, tosca_id: com.trinity.ue10}
+- {displayShortname: SS8 LIG, enclosingDomain: VNI, tosca_id: com.trinity.ue9}
+- {displayShortname: PGW, enclosingDomain: NotApplicable, tosca_id: com.trinity.usp.pgw}
+- {displayShortname: SGW, enclosingDomain: NotApplicable, tosca_id: com.trinity.usp.sgw}
+- {displayShortname: PSTN-TDM Switch, enclosingDomain: VNI, tosca_id: com.trinity.ue7}
+- {displayShortname: PSAP, enclosingDomain: EPC, tosca_id: com.trinity.ue8}

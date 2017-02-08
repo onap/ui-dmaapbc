@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AT&T Advanced Service Editor</title>
+
+	<!-- Style Sheets -->
+	<link rel="stylesheet" type="text/css" href="../styles/menus/bs.css">
+    <link rel="stylesheet" type="text/css" href="../styles/menus/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../styles/menus/tooltipster.css">
+    <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+
+	<!--  Local Style -->
+	<style>
+        .ui-accordion .ui-accordion-content { padding: 0px; }
+	</style>
+
+	<!-- Libraries -->
+    <!-- Dependencies --> 
+    <script src="../scripts/dependencies/interact.js"></script>
+    <script src="../scripts/dependencies/jquery-2.1.4.min.js"></script>
+    <script src="../scripts/dependencies/Blob.js"></script>
+    <script src="../scripts/dependencies/base64.js"></script>
+    <script src="../scripts/dependencies/saveSvgAsPng.js"></script>
+    <script src="../scripts/dependencies/js-yaml.js"></script>
+    <script src="../scripts/menus/jquery.tooltipster.js"></script>
+    <script src="../scripts/menus/jquery-ui.min.js"></script>
+	<script src="../scripts/menus/bootstrap.min.js"></script>
+	<script src="../scripts/menus/bootbox.js"></script>
+	<script src="../scripts/menus/contextMenu.js"></script>
+
+	<!-- AngularJS -->
+	<script src="../../external/ebz/angular_js/angular.js"></script>
+
+	<!-- viewer dependencies -->
+	<script src="../scripts/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+	<script src="../scripts/bower_components/lodash/lodash.js"></script>
+
+	<!-- viewer -->
+	<script src="../scripts/bower_components/bpmn-js/dist/bpmn-viewer.js"></script>
+
+    <!-- My Scripts -->
+    <script src="../scripts/dragMoveListener.js"></script>
+    <script src="../scripts/dragMoveListenerArrow.js"></script>
+    <script src="../scripts/buttons.js"></script>
+    <script src="../scripts/resizable.js"></script>
+    <script src="../scripts/arrows.js"></script>
+    <script src="../scripts/nodes.js"></script>
+    <script src="../scripts/notes.js"></script>
+    <script src="../scripts/dropzones.js"></script>
+    <script src="../scripts/backend.js"></script>
+    <script src="../scripts/arrayManipulation.js"></script>
+    <script src="../scripts/printpdf.js"></script>
+    <script src="../scripts/scroll.js"></script>
+    <script src="../scripts/dictionary.js"></script>
+    <script src="../scripts/customContextMenus.js"></script>
+    <script src="../scripts/BPMNconversion.js"></script>
+    <script src="../scripts/convertToYaml.js"></script>
+   <!--  <script src="../scripts/elements_ase.js"></script> -->
+    <script src="../scripts/services.js"></script>
+    <script src="../scripts/ase.js"></script>
+    <script src="../scripts/app.js"></script>
+
+	<script>
+	</script>
+</head>
+
+
+
+<body ng-app="eAse">
+   <div id="top-bar">
+       <div class="home">
+           <div class="att"></div>
+           <div class="pipe"></div>
+           <h3></h3>
+	
+       </div> 
+   </div>
+   <div id="right-panel">
+   	<div class="controls">
+   	<div id="backHome" class="back"></div>
+   	</div>
+   </div>
+   
+<div id="titleBar" ng-controller="ETitleController">
+	<h3 class="titleBar" >
+		<span id="description" ng-click="editTitle()" ng-show="titleEdit" ng-model="title" ng-cloak>{{title}}</span>
+		<input type="text" ng-hide="titleEdit" ng-model="title" ng-keypress="doneEdit($event)" ng-blur="blur($event)">	
+	</h3>
+</div>
+
+<div id="topBreak">
+	<br class=smallBR><br class=smallBR>
+</div>
+
+<div id="sideBar">
+<br>
+	<table id="elementTable" style="margin-left:15px;">
+		<tr><td>
+			<div id="element" class="nodeDraggable drag-drop drag nodeContextMenu" taska_id="com.ecomp.trinity.ran.enodeb">
+			<p id="shortName" class=draggables> eNB </p>
+			</div>
+		</td></tr>
+		<tr><td><label class="componentSelection" for="domains">Domains</label><br><select id="domains" class="componentSelectionBox"><option value="na">-- Select Domain --</option></select></td></tr>
+		<tr><td><label class="componentSelection" for="elements">Elements</label><br><select id="elements" class="componentSelectionBox" disabled="disabled"><option value="na">-- Select Element --</option></select></td></tr>
+		<tr><td align-"center">
+			<br>
+			<div class="arrowDraggable resizable gridDropzone" style="margin-left:27px;">
+	    		<div class="arrow" style="display:inline;"></div><div class="triangle" style="display:inline;"></div>
+			</div>
+			<br>
+		</td></tr>
+		<tr><td align="center">
+			<br>
+			<button id="saveButton" class="medium" style = "display:inline;" onmouseover="repeater=setInterval(warning(),100);" onmouseout="clearInterval(repeater);" onClick = "saveDialog();">Save</button>
+			<button class="medium" style = "display:inline;" onClick = "loadDialog();">Load</button>
+			<br>
+		</td></tr>
+	</table>
+	<br><br><br>
+	<div id="sampleDiv" style="margin-bottom:5px;margin-top:18px;font-size:small;">
+		<div style="border: 1px inset black;background:white;margin:10px;padding:3px;">
+		<span>Some of the libraries used to build this tool are <b>interact.js</b>,<b>bpmn.js.</b> and <b>bootstrap</b>. Intereact provides the drag and drop features. The buttons below will show some of these in action.</span>
+		<table style="text-align:center;border:0px;">
+		<tr><td style="border:0px;">Load Sample Diagram<br><button class="medium" style="font-size:12px" id="sampleEx">Load Sample</button></td></tr>
+		<tr><td style="margin-top:3px;border:0px;">BPMN module was used to create printable images.<br><button class="medium" style="font-size:12px" id="bpmnEx">BPMN</button></td></tr>
+		<tr><td style="margin-top:3px;border:0px;">Bootstrap Popup Example<br><button class="medium" style="font-size:12px" id="popupEx">Show Popup</button></td></tr>
+		</table>
+		</div>
+	</div>
+	<div id="warning" style="font-style: italic; font-size: 12px; margin-top:12px; text-align:center; cursor:pointer" onClick = "blinkMissingArrows();"></div>
+	<img id="trash" class=trash src="../images/trashCan.gif" height="100" width="auto" style="cursor:pointer;margin-bottom:5px;margin-top:18px;visibility:hidden;">
+</div>
+<div id="grid">
+	<div id="appendSpot" class="arrow_box" style="position:absolute; z-index:9998; transform: translate(260px, 22px); -webkit-transform: translate(260px, 22px); visibility:hidden;">Append here</div>
+	<div id="nodeChildrenDroppedOffHere" style = "float:left"></div>
+	<!-- Nodes placed here -->
+	<div id="arrowChildrenDroppedOffHere" style = "float:left"></div>
+	<!-- Arrows placed here -->
+	<div id="noteChildrenDroppedOffHere" style = "float:left"></div>
+	<!-- Notes placed here -->
+	<div id="nodeZone" class="nodeDropzone" style="float:top;margin-left:10em;">
+		<br style = "line-height:40px">
+		<br style = "line-height:18px">
+		<br style = "line-height:35px">
+	</div>
+	<div id="numbers" style="position:fixed; width:auto; z-index:9006; height:auto; margin-left:10em;">
+	<!-- Numbers generated here -->
+	</div>
+	<div id="horRows" style="position:absolute; margin-left:10em; width:81%; float:right;">
+		<div id="lines" class = "arrowDropzone" style="position:relative; margin-left:6em;">
+			<!-- Rows generated here -->
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

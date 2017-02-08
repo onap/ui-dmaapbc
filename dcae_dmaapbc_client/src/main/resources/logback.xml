@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+
+	<!-- Configuration of logback library for rest client, reused from http://logback.qos.ch/manual/configuration.html -->
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<!-- allow our classes to be chatty -->
+	<logger name="org.openecomp.ecomp.dcae.dmaap.bcapi.client" level="debug" />
+
+	<!-- http client is chatty at level debug -->
+	<logger name="org.apache.http" level="info" />
+
+</configuration>

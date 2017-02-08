@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- repository key for maven central -->
+	<groupId>org.openecomp.ui.dmaapbc</groupId>
+	<artifactId>dmaap-bc-model</artifactId>
+	<version>1.0.0</version>
+	<name>DCAE DMaaP Bus Controller Data Models</name>
+	<description>Java objects used by the DMaaP Bus Controller</description>
+	<scm>
+		<url>https://gitlab/projects/ST_DBPA/repos/dcae_dmaapbc_model/browse</url>
+		<developerConnection>scm:git:ssh://git@gitlab/st_dbpa/dcae_dmaapbc_model.git</developerConnection>
+	</scm>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<skiptests>true</skiptests>
+	</properties>
+
+	<profiles>
+		<!-- disable doclint, a new feature in Java 8, when generating javadoc -->
+		<profile>
+			<id>doclint-java8-disable</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.10.4</version>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.8.1</version>
+				<configuration>
+					<connectionType>developerConnection</connectionType>
+					<scmVersionType>branch</scmVersionType>
+					<scmVersion>master</scmVersion>
+				</configuration>
+			</plugin>
+			<!-- Compile to Java 1.8 class output format -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Generate javadoc jar; see profile for Java 8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Generate source jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<!-- 
+		Publish jars to the RackSpace Maven Central Repository.
+		Host name is INCOMPLETE; /etc/hosts must resolve to 162.242.254.138.
+		The id tags below must match a .m2/settings.xml/servers/server/id 
+		-->
+		<snapshotRepository>
+			<!-- Snapshots repository has ECOMP snapshot artifacts -->
+			<id>nexus-snapshots</id>
+			<name>OpenECOMP Nexus Maven Central - Snapshots</name>
+			<url>https://ecomp-nexus:8443/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<!-- Releases repository has ECOMP release artifacts -->
+			<id>nexus</id>
+			<name>OpenECOMP Nexus Maven Central - Releases</name>
+			<url>https://ecomp-nexus:8443/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+
+</project>
