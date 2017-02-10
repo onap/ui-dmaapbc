@@ -104,18 +104,16 @@
 		Host name is INCOMPLETE; /etc/hosts must resolve to 162.242.254.138.
 		The id tags below must match a .m2/settings.xml/servers/server/id 
 		-->
-		<snapshotRepository>
-			<!-- Snapshots repository has ECOMP snapshot artifacts -->
-			<id>nexus-snapshots</id>
-			<name>OpenECOMP Nexus Maven Central - Snapshots</name>
-			<url>https://ecomp-nexus:8443/repository/maven-snapshots/</url>
-		</snapshotRepository>
 		<repository>
-			<!-- Releases repository has ECOMP release artifacts -->
-			<id>nexus</id>
-			<name>OpenECOMP Nexus Maven Central - Releases</name>
-			<url>https://ecomp-nexus:8443/repository/maven-releases/</url>
+			<id>ecomp-releases</id>
+			<name>OpenECOMP - Release Repository</name>
+			<url>https://nexus.openecomp.org/content/repositories/releases/</url>
 		</repository>
+		<snapshotRepository>
+			<id>ecomp-snapshots</id>
+			<name>OpenECOMP - Snapshot Repository</name>
+			<url>https://nexus.openecomp.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 </project>
