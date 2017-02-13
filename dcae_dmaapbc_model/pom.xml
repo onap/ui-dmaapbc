@@ -99,11 +99,6 @@
 	</build>
 
 	<distributionManagement>
-		<!-- 
-		Publish jars to the RackSpace Maven Central Repository.
-		Host name is INCOMPLETE; /etc/hosts must resolve to 162.242.254.138.
-		The id tags below must match a .m2/settings.xml/servers/server/id 
-		-->
 		<repository>
 			<id>ecomp-releases</id>
 			<name>OpenECOMP - Release Repository</name>
