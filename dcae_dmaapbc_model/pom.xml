@@ -5,7 +5,7 @@
 	<!-- repository key for maven central -->
 	<groupId>org.openecomp.ui.dmaapbc</groupId>
 	<artifactId>dmaap-bc-model</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>DCAE DMaaP Bus Controller Data Models</name>
 	<description>Java objects used by the DMaaP Bus Controller</description>
 	<scm>
@@ -42,6 +42,17 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<nexusUrl>https://nexus.openecomp.org/</nexusUrl>
+					<stagingProfileId>176c31dfe190a</stagingProfileId>
+					<serverId>ecomp-staging</serverId>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
