@@ -26,6 +26,10 @@
 		<!-- Jenkins invokes mvn with argument -Dbuild.number=${BUILD_NUMBER} -->
 		<build.number>0</build.number>
 		<sonar.exclusions>**.js</sonar.exclusions>
+		<nexusproxy>https://nexus.onap.org</nexusproxy>
+		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
+		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
+		<stagingNexusPath>/content/repositories/staging/</stagingNexusPath>
 	</properties>
 
 	<repositories>
@@ -33,19 +37,19 @@
 			<!-- Releases repository has ECOMP release artifacts -->
 			<id>ecomp-releases</id>
 			<name>OpenECOMP - Release Repository</name>
-			<url>https://nexus.openecomp.org/content/repositories/releases/</url>
+			<url>${nexusproxy}/${releaseNexusPath}</url>
 		</repository>
 		<repository>
 			<!-- Snapshots repository has ECOMP snapshot artifacts -->
 			<id>ecomp-snapshots</id>
 			<name>OpenECOMP - Snapshot Repository</name>
-			<url>https://nexus.openecomp.org/content/repositories/snapshots/</url>
+			<url>${nexusproxy}/${snapshotNexusPath}</url>
 		</repository>
 		<repository>
 			<!-- Staging repository has ECOMP staging artifacts -->
 			<id>ecomp-staging</id>
 			<name>OpenECOMP - Staging Repository</name>
-			<url>https://nexus.openecomp.org/content/repositories/staging/</url>
+			<url>${nexusproxy}/${stagingNexusPath}</url>
 		</repository>
 	</repositories>
 
