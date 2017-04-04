@@ -26,6 +26,8 @@
 		<!-- Jenkins invokes mvn with argument -Dbuild.number=${BUILD_NUMBER} -->
 		<build.number>0</build.number>
 		<sonar.exclusions>**.js</sonar.exclusions>
+		<nexusproxy>https://nexus.onap.org</nexusproxy>
+		<sitePath>/content/sites/site/org/openecomp/ui/dmaapbc/${project.version}</sitePath>
 	</properties>
 
 	<repositories>
@@ -361,8 +363,8 @@
 		with password "changeit"
 		-->
 		<site>
-			<id>nexus</id>
-			<url>dav:https://ecomp-nexus:8443/repository/dbc-javadoc/${project.version}</url>
+			<id>ecomp-site</id>
+			<url>dav:${nexusproxy}${sitePath}</url>
 		</site>
 	</distributionManagement>
 	<pluginRepositories>
