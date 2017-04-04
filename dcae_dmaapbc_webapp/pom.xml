@@ -30,6 +30,7 @@
 		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
 		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
 		<stagingNexusPath>/content/repositories/staging/</stagingNexusPath>
+		<sitePath>/content/sites/site/org/openecomp/ui/dmaapbc/${project.version}</sitePath>
 	</properties>
 
 	<repositories>
@@ -365,8 +366,8 @@
 		with password "changeit"
 		-->
 		<site>
-			<id>nexus</id>
-			<url>dav:https://ecomp-nexus:8443/repository/dbc-javadoc/${project.version}</url>
+			<id>ecomp-site</id>
+			<url>dav:${nexusproxy}${sitePath}</url>
 		</site>
 	</distributionManagement>
 	<pluginRepositories>
