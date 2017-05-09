@@ -1,0 +1,64 @@
+<script type="text/ng-template" id="edit_topic_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+   
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="topicname">*Name</label>
+					<div class="field-group">
+						<input id="topicname" class="span12" type="text" data-ng-model="dbcapp.editTopic.topicName">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="description">*Description</label>
+					<div class="field-group">
+						<input id="description" class="span12" type="text" data-ng-model="dbcapp.editTopic.topicDescription">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<div class="field-group">
+	               		<label for="enabled" class="checkbox">
+   	                	<input id="enabled" type="checkbox" ng-model="dbcapp.editTopic.tnxEnabled" />
+							<i class="skin"></i><span>Tnx Enabled</span>
+                		</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+					ng-click="dbcapp.saveTopic(dbcapp.editTopic);">
+				Save
+			</button>
+			<button class="btn btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Cancel
+			</button>
+		</div>
+	</div>
+
+</script>

@@ -1,0 +1,80 @@
+<script type="text/ng-template" id="show_topic_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+   
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="fqtn">Qualified Name</label>
+					<div class="field-group">
+						<input id="fqtn" class="span12" type="text" data-ng-model="dbcapp.editTopic.fqtn">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="name">Name</label>
+					<div class="field-group">
+						<input id="name" class="span12" type="text" data-ng-model="dbcapp.editTopic.topicName">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="description">*Description</label>
+					<div class="field-group">
+						<input id="description" class="span12" type="text" data-ng-model="dbcapp.editTopic.topicDescription">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="owner">Owner</label>
+					<div class="field-group">
+						<input id="owner" class="span12" type="text" data-ng-model="dbcapp.editTopic.owner">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="owner">Status</label>
+					<div class="field-group">
+						<input id="owner" class="span12" type="text" data-ng-model="dbcapp.editTopic.status">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+	</div>
+
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Close
+			</button>
+		</div>
+	</div>
+
+</script>

@@ -1,0 +1,53 @@
+<script type="text/ng-template" id="topic_client_list_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<table 
+			id="clients-table"
+			table-data="dbcapp.showTopic.clients" 
+			current-page="dbcapp.currentPageIgnored" 
+			next-sort="dbcapp.nextSortIgnored">
+
+			<thead type="header">
+				<tr>
+					<th sortable="false">MR Client ID</th>
+					<th sortable="false">DCAE Location Name</th>
+					<th sortable="false">Action</th>
+					<th sortable="false">Client Role</th>
+					<th sortable="false">Last Modified</th>
+					<th sortable="false">Status</th>
+				</tr>
+			</thead>
+			<tbody type="body" ng-repeat="rowData in dbcapp.showTopic.clients">
+				<tr>
+					<td ng-bind="rowData.mrClientId" />
+					<td	ng-bind="rowData.dcaeLocationName" />
+					<td ng-bind="rowData.action"/>
+					<td ng-bind="rowData.clientRole"/>
+					<td ng-bind="rowData.lastMod" />
+					<td ng-bind="rowData.status" />
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+		
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Close
+			</button>
+		</div>
+	</div>
+	
+</script>

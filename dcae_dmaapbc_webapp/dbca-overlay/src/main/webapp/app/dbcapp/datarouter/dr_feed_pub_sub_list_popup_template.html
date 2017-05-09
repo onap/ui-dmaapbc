@@ -1,0 +1,88 @@
+<script type="text/ng-template" id="feed_pub_sub_list_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<h4>Publishers</h4>
+		
+		<table
+			id="pubs-table"
+			table-data="dbcapp.showFeed.pubs" 
+    		current-page="dbcapp.currentPageIgnored"
+    		next-sort="dbcapp.nextSortIgnored">
+
+			<thead type="header">
+				<tr>
+					<th sortable="false" key="pubId">Pub ID</th>
+					<th sortable="false" key="dcaeLocationName">DCAE Location Name</th>
+					<th sortable="false" key="status">Status</th>
+					<th sortable="false" key="username">User Name</th>
+				</tr>
+			</thead>
+			<tbody type="body" ng-repeat="rowData in dbcapp.showFeed.pubs">
+				<tr>
+					<td ng-bind="rowData.pubId"/>
+					<td ng-bind="rowData.dcaeLocationName"/>
+					<td ng-bind="rowData.status"/>
+					<td ng-bind="rowData.username"
+						ng-click="dbcapp.editPubModalPopup(rowData)"/>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h4>Subscribers</h4>
+		
+		<table
+			id="subs-table"
+			table-data="dbcapp.showFeed.subs" 
+    		current-page="dbcapp.currentPageIgnored"
+    		next-sort="dbcapp.nextSortIgnored">
+
+			<thead type="header">
+				<tr>
+					<th sortable="false">Sub ID</th>
+					<th sortable="false">DCAE Location Name</th>
+					<th sortable="false">Delivery URL</th>
+					<th sortable="false">Log URL</th>
+					<th sortable="false">Owner</th>
+					<th sortable="false">Status</th>
+					<th sortable="false">Susp</th>
+					<th sortable="false">User Name</th>
+				</tr>
+			</thead>
+			<tbody type="body" ng-repeat="rowData in dbcapp.showFeed.subs">
+				<tr>
+					<td ng-bind="rowData.subId"/>
+					<td ng-bind="rowData.dcaeLocationName"/>
+					<td ng-bind="rowData.deliveryURL"/>
+					<td ng-bind="rowData.logURL"/>
+					<td ng-bind="rowData.owner"/>
+					<td ng-bind="rowData.status"/>
+					<td>
+						{{rowData.suspended | dbcYesNoFilter}}
+					</td>
+					<td ng-bind="rowData.username"/>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+		
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Close
+			</button>
+		</div>
+	</div>
+	
+</script>

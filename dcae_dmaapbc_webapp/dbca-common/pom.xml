@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.openecomp.ui.dmaapbc</groupId>
+	<artifactId>dmaap-bc-app-common</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>DCAE DMaaP Bus Controller Webapp Common Java Files</name>
+	<description>Code for the DCAE DMaaP Bus Controller GUI</description>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<springframework.version>4.2.0.RELEASE</springframework.version>
+		<hibernate.version>4.3.11.Final</hibernate.version>
+		<epsdk.version>1.1.0-SNAPSHOT</epsdk.version>
+		<dbca.version>1.1.0-SNAPSHOT</dbca.version>
+		<skipTests>true</skipTests>
+		<nexusproxy>https://nexus.onap.org</nexusproxy>
+		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
+		<stagingNexusPath>/content/repositories/staging/</stagingNexusPath>
+		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>snapshots-repo</id>
+			<url>${nexusproxy}${snapshotNexusPath}</url>
+		</repository>
+		<repository>
+			<id>staging-repo</id>
+			<url>${nexusproxy}${stagingNexusPath}</url>
+		</repository>
+		<repository>
+			<id>releases-repo</id>
+			<url>${nexusproxy}${releaseNexusPath}</url>
+		</repository>
+		<repository>
+			<id>LF-EELF-jar-repo</id>
+			<url>${nexusproxy}/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+
+			<!-- Compile to Java 1.8 class output format -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- Put version into jar also -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<archive-version>${project.version}</archive-version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- Generate javadoc jar; see profile for Java 8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Generate source jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<!-- SDK components -->
+		<dependency>
+			<groupId>org.openecomp.ecompsdkos</groupId>
+			<artifactId>epsdk-core</artifactId>
+			<version>${epsdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.elasticsearch</groupId>
+					<artifactId>elasticsearch</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.att.eelf</groupId>
+			<artifactId>eelf-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- For using HTTP Basic Auth in uService REST client -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.5</version>
+		</dependency>
+		<!-- Use Mariadb connector/j for failover -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>1.5.8</version>
+		</dependency>
+		<!-- Mapper -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160212</version>
+		</dependency>
+		<!-- bridge to implement commons-logging using slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- no distributionManagement section; no jars pushed to any Nexus repository -->
+
+</project>

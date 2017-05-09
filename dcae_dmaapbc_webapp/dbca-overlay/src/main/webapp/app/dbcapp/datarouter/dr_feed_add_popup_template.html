@@ -1,0 +1,113 @@
+<script type="text/ng-template" id="add_feed_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="feedname">*Feed Name</label>
+					<div class="field-group">
+						<!--autofocus is HTML5 attribute; doesn't work in Firefox-->
+						<input id="feedname" class="span12" type="text" data-ng-model="dbcapp.editFeed.feedName" autofocus>
+					</div>
+				</div>
+			</div> 
+			<div class="span12">
+				<div class="form-row">
+					<label for="dcaelocation">*DCAE Location</label>
+					<div class="field-group">
+						<select b2b-dropdown id="dcaeLocation" name="loc" ng-model="dbcapp.editFeed.pubs[0].dcaeLocationName">
+							<option b2b-dropdown-list option-repeat="d in dbcapp.dcaeList" value="{{d}}">{{d}}</option>
+						</select>
+					</div>
+				</div> 
+			</div> 
+		</div>			
+			
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="feedversion">*Feed Version</label>
+					<div class="field-group">
+						<input id="feedversion" class="span12" type="text" data-ng-model="dbcapp.editFeed.feedVersion">
+					</div>
+				</div>			
+			</div>
+			<div class="span12">
+				<div class="form-row">
+					<label for="username">Publish User Name</label>
+					<div class="field-group">
+						<input id="username" class="span12" type="text" data-ng-model="dbcapp.editFeed.pubs[0].username">
+					</div>
+				</div>			
+			</div>			
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="feeddescription">*Description</label>
+					<div class="field-group">
+						<input id="feeddescription" class="span12" type="text" data-ng-model="dbcapp.editFeed.feedDescription">
+					</div>
+				</div>			
+			</div>
+			<div class="span12">
+				<div class="form-row">
+					<label for="password">Publish Password</label>
+					<div class="field-group">
+						<input id="password" class="span12" type="text" data-ng-model="dbcapp.editFeed.pubs[0].userpwd">
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="asprclass">*PII Classification</label>
+					<div class="field-group">
+						<select b2b-dropdown id="asprclass" name="asprclass" ng-model="dbcapp.editFeed.asprClassification">
+							<option b2b-dropdown-list option-repeat="d in dbcapp.asprClassificationList" value="{{d}}">{{d}}</option>
+						</select>
+					</div>
+				</div>
+			</div>			
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+	                <label for="suspended" class="checkbox">
+   	                <input id="suspended" type="checkbox" ng-model="dbcapp.editFeed.suspended" />
+							<i class="skin"></i><span>Suspended</span>
+                	</label>
+				</div>			
+			</div>
+		</div>
+
+	</div>
+
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+					ng-click="dbcapp.saveFeed(dbcapp.editFeed);">
+				Save
+			</button>
+			<button class="btn btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Cancel
+			</button>
+		</div>
+	</div>
+
+</script>

@@ -1,0 +1,52 @@
+<!-- Landing page. Controller is specified by route provider. -->
+<div id="page-content">
+
+	<h1 class="heading-page" id="dataRouterFeeds">DMaaP Bus Controller</h1>
+
+	<P>Welcome to the DMaaP Bus Controller web application.</P>
+
+	<div ng-show="dbcapp.isDataLoading">
+		<div class="span" style="margin-bottom:20px;">
+    		<i class="icon-primary-spinner small" role="img" aria-label="Please wait while the content loads"></i>
+    		Please wait while the content loads.
+	    </div>
+	</div>
+
+	<div ng-hide="dbcapp.isDataLoading">
+
+		<div ng-show="dbcapp.isRequestFailed">
+			<span class="errorMessageText">{{dbcapp.errMsg}}</span>
+		</div>
+		
+		<div ng-hide="dbcapp.isRequestFailed">
+	
+			<p>	
+				<a href="dbc#/dmaap">Selected DMaaP access profile:</a>
+				<ul>
+					<li>Name: <span style="font-weight: bold">{{dbcapp.selectedDmaapAccess.name}}</span></li>
+					<li>URL:  <span style="font-weight: bold">{{dbcapp.selectedDmaapAccess.dmaapUrl}}</span></li>
+				</ul>
+			</p>
+			
+			<p>
+			<span style="font-size: 8pt; color: grey;"> 
+				Application version:
+				<UL>
+					<LI>Build-Number: {{dbcapp.manifest['Build-Number']}}</LI>
+					<LI>Build-Time:   {{dbcapp.manifest['Build-Time']}}</LI>
+				</UL>
+				<div ng-if="dbcapp.manifest.usvcManifest">
+					Microservice version:
+					<UL>
+						<LI>Build-Number: {{dbcapp.manifest.usvcManifest['Build-Number']}}</LI>
+						<LI>Build-Time:   {{dbcapp.manifest.usvcManifest['Build-Time']}}</LI>
+					</UL>
+				</div>
+			</span>
+			</p>
+			
+		</div>
+
+	</div><!-- loading -->
+	
+</div><!-- page content -->
