@@ -1,0 +1,171 @@
+<!-- Feed list. Controller is specified by route provider. -->
+<div id="page-content">
+
+	<h1 class="heading-page" id="dataRouterFeeds">Data Router Feeds</h1>
+	
+   	<!-- show progress indicator -->
+	<div ng-show="dbcapp.isDataLoading">
+		<div class="span" style="margin-bottom:20px;">
+    		<i class="icon-primary-spinner small" role="img" aria-label="Please wait while the content loads"></i>
+    		Please wait while the content loads.
+	    </div>
+	</div>
+
+	<div ng-hide="dbcapp.isDataLoading">
+
+		<div id="button-search-row">
+			<button class="btn btn-alt btn-small" 
+				type="submit"
+				ng-click="dbcapp.addFeedModalPopup();"> 
+				Add Feed...
+			</button>
+
+			<div style="float:right;">
+		           <div class="form-field form-field__small"> 
+					<input 
+						type="text"
+						placeholder="Search feeds"
+						ng-model="dbcapp.searchString"/>
+				    <!-- <i class="icon-primary-questionmark"></i> -->
+				</div>
+			</div>
+		</div>
+	 
+		<div ng-show="dbcapp.isRequestFailed">
+			<span class="errorMessageText">{{dbcapp.errMsg}}</span>
+		</div>
+		
+		<div ng-hide="dbcapp.isRequestFailed">
+			<h4 class="heading-small-emphasis">
+				Access Profile {{dbcapp.profileName}},  DMaaP Name {{dbcapp.dmaapName}}
+			</h4>
+		</div>
+		
+    	<div 
+    		b2b-table 
+    		id="dr-feeds-table"
+    		class="b2b-table-div" 
+    		table-data="dbcapp.tableData" 
+    		search-string="dbcapp.searchString" 
+    		current-page="dbcapp.currentPageIgnored"
+    		next-sort="dbcapp.nextSortIgnored">
+
+	        <table>
+	        
+	            <thead b2b-table-row type="header">	
+					<tr id="th-header-row">
+						<th b2b-table-header key="feedId">ID</th>
+						<th b2b-table-header key="feedName">Name</th>
+						<th b2b-table-header key="feedVersion">Ver</th>
+						<th b2b-table-header key="feedDescription">Description</th>
+						<th b2b-table-header key="asprClassification">Classification</th>
+						<th b2b-table-header key="publishURL">Publish URL</th>
+						<th b2b-table-header key="logURL">Log URL</th>
+						<th b2b-table-header key="owner">Owner</th>
+						<th b2b-table-header key="status">Status</th>
+						<th b2b-table-header key="suspended">Susp</th>
+						<th b2b-table-header sortable="false">P+S</th>
+			  			<th b2b-table-header sortable="false">Pub</th>
+			  			<th b2b-table-header sortable="false">Sub</th>
+			  			<th b2b-table-header sortable="false">Del</th>
+					</tr>
+				</thead>
+				
+	            <tbody b2b-table-row type="body" row-repeat="rowData in dbcapp.tableData">
+					<tr id="tr-rowData">
+						<td b2b-table-body
+							ng-bind="rowData.feedId"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.feedName"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.feedVersion"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.feedDescription"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.asprClassification"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.publishURL"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.logURL"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.owner"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-bind="rowData.status"
+							ng-click="dbcapp.editFeedModalPopup(rowData)"/>
+						<td b2b-table-body
+							ng-click="dbcapp.editFeedModalPopup(rowData)">
+							{{rowData.suspended | dbcYesNoFilter}}
+						</td>
+						<td b2b-table-body
+							ng-bind="rowData.pubs.length + rowData.subs.length"
+							ng-click="dbcapp.showFeedPubsSubsModalPopup(rowData)">
+						</td>
+						<td b2b-table-body> 
+					    	<div ng-click="dbcapp.addFeedPublisherModalPopup(rowData);" style="font-size:20px;">
+					    		<a href="">+P</a>
+					    	</div>
+				     	</td>
+						<td b2b-table-body> 
+					    	<div ng-click="dbcapp.addFeedSubscriberModalPopup(rowData);" style="font-size:20px;">
+					    		<a href="">+S</a>
+					    	</div>
+				     	</td>
+						<td b2b-table-body> 
+					    	<div ng-click="dbcapp.deleteFeedModalPopup(rowData);">
+					    		<a href="" class="icon-misc-trash"></a>
+					    	</div>
+				     	</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> 
+	
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="pageNumber">Page Number:</label>
+					<div class="field-group">
+						<select b2b-dropdown id="pageNumber" name="currentPageNumSelector" ng-model="dbcapp.currentPageNum" ng-change="dbcapp.loadTable()">
+							<option b2b-dropdown-list 
+								option-repeat="p in dbcapp.buildArraySizeN(dbcapp.totalPages) track by $index"
+								value="{{$index+1}}">{{$index+1}}</option>
+						</select>
+					</div>
+				</div>
+			</div> 
+			<div class="span12">
+				<div class="form-row">
+					<label for="pageCount">Page Count:</label>
+					<div class="field-group">
+						<input id="pageCount" class="span12" type="text" data-ng-model="dbcapp.totalPages" readonly="true">
+					</div>
+				</div>
+			</div>
+			<div class="span12">
+				<div class="form-row">
+					<label for="rowsPerPage">Rows per Page:</label>
+					<div class="field-group">
+						<select b2b-dropdown id="rowsPerPage" name="rowsPerPage" ng-model="dbcapp.viewPerPage" ng-change="dbcapp.loadTable()">
+							<option b2b-dropdown-list 
+								option-repeat="v in dbcapp.viewPerPageOptions" 
+								value="{{v.value}}">{{v.value}}</option>
+						</select>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div style="height: 10px;">
+			<!-- space between page number and black footer -->
+		</div>
+		
+	</div><!-- loading -->
+	
+</div><!-- page content -->

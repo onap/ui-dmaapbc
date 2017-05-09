@@ -1,0 +1,89 @@
+<script type="text/ng-template" id="edit_dmaap_access_popup.html">
+
+	<div class="b2b-modal-header ng-scope">
+		<h2 id="myModalLabel" modal-title="">{{dbcapp.label}}</h2>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+
+	<div class="b2b-modal-body ng-scope ng-isolate-scope" tabindex="0"
+		role="region" aria-label="Modal body content">
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="name">*Name</label>
+					<div class="field-group">
+						<!--autofocus is HTML5 attribute; doesn't work in Firefox-->
+						<input id="name" class="span12" type="text" data-ng-model="dbcapp.editDmaapAccess.name" autofocus>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="url">*URL</label>
+					<!-- edit disabled for DE238329 -->
+					<div class="field-group">
+						<input id="url" class="span12" type="text" disabled="disabled" data-ng-model="dbcapp.editDmaapAccess.dmaapUrl">
+					</div>
+				</div> 
+			</div> 
+			<div class="span12">
+				<div class="form-row">
+					<label for="testButton">&nbsp;</label>
+					<div class="field-group">
+						<button 
+							id="testButton"
+							class="btn btn-alt btn-small" 
+							href="javascript:void(0)" 
+							ng-click="dbcapp.testDmaapAccess(dbcapp.editDmaapAccess);">
+							Test...
+						</button>
+					</div>
+				</div> 
+			</div> 
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="mechid">Mech ID</label>
+					<div class="field-group">
+						<input id="mechid" class="span12" type="text" data-ng-model="dbcapp.editDmaapAccess.mechId">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="password">Password</label>
+					<div class="field-group">
+						<input id="password" class="span12" type="password" data-ng-model="dbcapp.editDmaapAccess.password">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+					ng-click="dbcapp.saveDmaapAccess(dbcapp.editDmaapAccess);">
+				Save
+			</button>
+			<button class="btn btn-small" type="button"
+				ng-click="$dismiss('cancel')">
+				Cancel
+			</button>
+		</div>
+	</div>
+
+</script>

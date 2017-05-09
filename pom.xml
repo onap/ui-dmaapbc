@@ -1,61 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.openecomp.ui.dmaapbc</groupId>
-	<artifactId>ui-dmaapbc-project</artifactId>
-	<packaging>pom</packaging>
-	<!-- NOTE This value will not be picked from the property tag below, pass it as -Drelease.version="" when doing mvn deploy -->
-	<version>1.1.0-SNAPSHOT</version>
-	<name>DMaaP Bus Controller UI (parent)</name>
-	<url>https://wiki/display/EcompPortal</url>
-	<description>DCAE DMaaP Bus Controller GUI based on the ECOMP Portal Open-Source SDK</description>
-	<scm>
-		<url>https://gitlab/projects/ST_DBPA/repos/dcae_dmaapbc_webapp/browse</url>
-		<developerConnection>scm:git:ssh://git@gitlab/st_dbpa/dcae_dmaapbc_webapp.git</developerConnection>
-	</scm>
+        <modelVersion>4.0.0</modelVersion>
 
-	<modules>
-		<module>dcae_dmaapbc_model</module>
-		<module>dcae_dmaapbc_client</module>
-		<module>dcae_dmaapbc_webapp</module>
-	</modules>
+        <groupId>org.openecomp.dcae.dmaapbc</groupId>
+        <artifactId>dcae_dmaapbc_webapp</artifactId>
+        <version>0</version>
+        <packaging>pom</packaging>
+        <name>DCAE DMaaP Bus Controller Webapp</name>
 
-	<properties>
-		<nexusproxy>https://nexus.onap.org</nexusproxy>
-		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
-		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
-		<stagingNexusPath>/content/repositories/staging/</stagingNexusPath>
-	</properties>
+        <modules>
+                <module>dcae_dmaapbc_webapp</module>
+        </modules>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.7</version>
-				<extensions>true</extensions>
-				<configuration>
-					<nexusUrl>${nexusproxy}</nexusUrl>
-					<stagingProfileId>176c31dfe190a</stagingProfileId>
-					<serverId>ecomp-staging</serverId>
-				</configuration>
-			</plugin>
-		</plugins>
-
-	</build>
-
-	<distributionManagement>
-		<!-- Publish jars to the Nexus Repository - public group -->
-		<!-- The id below must match your .m2/settings.xml/servers/server/id -->
-		<repository>
-			<id>ecomp-releases</id>
-			<name>OpenECOMP - Release Repository</name>
-			<url>${nexusproxy}/${releaseNexusPath}</url>
-		</repository>
-		<snapshotRepository>
-			<id>ecomp-snapshots</id>
-			<name>OpenECOMP - Snapshot Repository</name>
-			<url>${nexusproxy}/${snapshotNexusPath}</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>

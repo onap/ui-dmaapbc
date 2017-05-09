@@ -1,7 +1,0 @@
-Create a Mysql database backup using this command:
-
-	mysqldump -h (HOST) -u (USER) -p (DBNAME) > out-file
-
-For example:
-
-	mysqldump -h host -u dbpauser -p xxxx > out.sql

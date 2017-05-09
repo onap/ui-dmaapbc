@@ -1,0 +1,126 @@
+<!-- Pub list. Controller is specified by route provider. -->
+<div id="page-content">
+
+	<h1 class="heading-page" id="feedPublishers">Feed Publishers</h1>
+
+   	<!-- show progress indicator -->
+	<div ng-show="dbcapp.isDataLoading">
+		<div class="span" style="margin-bottom:20px;">
+    		<i class="icon-primary-spinner small" role="img" aria-label="Please wait while the content loads"></i>
+    		Please wait while the content loads.
+	    </div>
+	</div>
+
+	<div ng-hide="dbcapp.isDataLoading">
+
+		<div id="button-search-row">
+			<!-- NO "add" button on this page -->
+			<div style="float:right;">
+		           <div class="form-field form-field__small"> 
+					<input 
+						type="text"
+						placeholder="Search publishers"
+						ng-model="dbcapp.searchString"/>
+				    <!-- <i class="icon-primary-questionmark"></i> -->
+				</div>
+			</div>
+		</div>
+				
+		<div ng-show="dbcapp.isRequestFailed">
+			<span class="errorMessageText">{{dbcapp.errMsg}}</span>
+		</div>
+		
+		<div ng-hide="dbcapp.isRequestFailed">
+			<h4 class="heading-small-emphasis">
+				Access Profile {{dbcapp.profileName}},  DMaaP Name {{dbcapp.dmaapName}}
+		</div>
+
+    	<div 
+    		b2b-table 
+    		id="dr-pubs-table"
+    		class="b2b-table-div" 
+    		table-data="dbcapp.tableData" 
+    		search-string="dbcapp.searchString" 
+    		current-page="dbcapp.currentPageIgnored"
+    		next-sort="dbcapp.nextSortIgnored">
+
+	        <table>
+
+	            <thead b2b-table-row type="header">
+					<tr>
+						<th b2b-table-header key="pubId">Pub ID</th>
+						<th b2b-table-header key="feedId">Feed ID</th>
+						<th b2b-table-header key="dcaeLocationName">DCAE Location Name</th>
+						<th b2b-table-header key="status">Status</th>
+						<th b2b-table-header key="username">User Name</th>
+	  					<th b2b-table-header sortable="false">Delete</th>
+					</tr>
+				</thead>
+				
+	            <tbody b2b-table-row type="body" row-repeat="rowData in dbcapp.tableData">
+					<tr id="tr-rowData">
+						<td b2b-table-body
+							ng-bind="rowData.pubId"
+							ng-click="dbcapp.editPubModalPopup(rowData)"/>
+						<td b2b-table-body 
+							ng-bind="rowData.feedId"
+							ng-click="dbcapp.editPubModalPopup(rowData)"/>
+						<td b2b-table-body 
+							ng-bind="rowData.dcaeLocationName"
+							ng-click="dbcapp.editPubModalPopup(rowData)"/>
+						<td b2b-table-body 
+							ng-bind="rowData.status"
+							ng-click="dbcapp.editPubModalPopup(rowData)"/>
+						<td b2b-table-body 
+							ng-bind="rowData.username"
+							ng-click="dbcapp.editPubModalPopup(rowData)"/>
+						<td b2b-table-body> 
+					    	<div ng-click="dbcapp.deletePubModalPopup(rowData);">
+					    		<a href="" class="icon-misc-trash"></a>
+					    	</div>
+		     			</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="row-nowrap">
+			<div class="span12">
+				<div class="form-row">
+					<label for="pageNumber">Page Number:</label>
+					<div class="field-group">
+						<select b2b-dropdown id="pageNumber" name="currentPageNumSelector" ng-model="dbcapp.currentPageNum" ng-change="dbcapp.loadTable()">
+							<option b2b-dropdown-list 
+								option-repeat="p in dbcapp.buildArraySizeN(dbcapp.totalPages) track by $index"
+								value="{{$index+1}}">{{$index+1}}</option>
+						</select>
+					</div>
+				</div>
+			</div> 
+			<div class="span12">
+				<div class="form-row">
+					<label for="pageCount">Page Count:</label>
+					<div class="field-group">
+						<input id="pageCount" class="span12" type="text" data-ng-model="dbcapp.totalPages" readonly="true">
+					</div>
+				</div>
+			</div>
+			<div class="span12">
+				<div class="form-row">
+					<label for="rowsPerPage">Rows per Page:</label>
+					<div class="field-group">
+						<select b2b-dropdown id="rowsPerPage" name="rowsPerPage" ng-model="dbcapp.viewPerPage" ng-change="dbcapp.loadTable()">
+							<option b2b-dropdown-list 
+								option-repeat="v in dbcapp.viewPerPageOptions" 
+								value="{{v.value}}">{{v.value}}</option>
+						</select>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div style="height: 10px;">
+			<!-- space between page number and black footer -->
+		</div>
+	</div><!-- loading -->
+	
+</div><!-- page content -->

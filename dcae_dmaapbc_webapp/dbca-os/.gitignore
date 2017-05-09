@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/
+/bin/
+/target/
+/catalina.base_IS_UNDEFINED/
+blackDuckHubProjectName.txt
+blackDuckHubProjectVersionName.txt
+dmaap-bc-app-os_bdio.jsonld

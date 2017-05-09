@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- DMaaP Bus Controller single-page application using B2B/DS2. -->	
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>DMaaP Bus Controller</title>
+    <link rel="icon" type="image/ico" href="app/dbcapp/images/onap_16x16.ico" />
+
+	<!-- B2b Library -->
+	<link rel="stylesheet" type="text/css" href="app/fusion/external/b2b/css/b2b-angular/b2b-angular.css">
+	<link rel="stylesheet" type="text/css" href="app/fusion/external/b2b/css/b2b-angular/font_icons.css">
+	
+	<!-- icons in open source -->
+	<link rel="stylesheet" type="text/css" href="app/fusion/external/ds2/css/digital-ng-library/ionicons.css">
+
+	<link rel="stylesheet" type="text/css" href="app/fusion/styles/ecomp.css">
+	<link rel="stylesheet" type="text/css" href="app/dbcapp/home/dbc-style.css">
+         
+	<!-- Common scripts -->	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular.js"></script>	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular-cookies.js"></script>	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular-messages.js"></script>	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular-route.js"></script>	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular-sanitize.js"></script>	
+	<script src="app/dbcapp/libs/angular-1.4.8/angular-touch.js"></script>	
+
+	<script src="app/fusion/external/jquery/dist/jquery.min.js"></script>
+	
+	<script src="app/fusion/external/javascript-detect-element-resize/jquery.resize.js"></script>
+	<script src="app/fusion/external/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	
+	<!-- B2b Library -->
+	<script src="app/fusion/external/b2b/js/b2b-angular/b2b-library.min.js"></script>
+
+    <!-- main app -->
+	<script src="app/dbcapp/home/dbc-modal-service.js"></script>
+	<script src="app/dbcapp/home/appDS2.js"></script> 
+
+	<!-- directives and services -->
+	<script src="app/fusion/scripts/DS2-services/userInfoServiceDS2.js"></script>
+	<script src="app/fusion/scripts/DS2-services/headerServiceDS2.js"></script>
+	<script src="app/fusion/scripts/DS2-services/manifestService.js"></script>
+	<script src="app/fusion/scripts/DS2-directives/footer.js"></script>
+	<script src="app/fusion/scripts/DS2-directives/ds2Header.js"></script>
+	<script src="app/fusion/scripts/DS2-services/leftMenuServiceDS2.js"></script>
+	<script src="app/fusion/scripts/DS2-directives/ds2LeftMenu.js"></script>
+	<script src="app/fusion/scripts/DS2-directives/b2b-leftnav-ext.js"></script> 
+
+	<!-- filters -->
+	<script src="app/dbcapp/home/dbc-yn-filter.js"></script>
+
+	<!-- dmaaap access -->
+	<script src="app/dbcapp/dmaapaccess/dmaap-access-list-controller.js"></script>
+	<script src="app/dbcapp/dmaapaccess/dmaap-access-popup-controller.js"></script>
+	<script src="app/dbcapp/dmaapaccess/dmaap-access-service.js"></script>
+	
+	<!-- data router -->
+	<script src="app/dbcapp/datarouter/dr-feed-service.js"></script>
+	<script src="app/dbcapp/datarouter/dr-feed-list-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-feed-popup-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-feed-pub-sub-list-popup-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-pub-service.js"></script>
+	<script src="app/dbcapp/datarouter/dr-pub-list-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-pub-popup-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-sub-service.js"></script>
+	<script src="app/dbcapp/datarouter/dr-sub-list-controller.js"></script>
+	<script src="app/dbcapp/datarouter/dr-sub-popup-controller.js"></script>
+
+	<!-- message router -->
+	<script src="app/dbcapp/messagerouter/mr-client-service.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-client-list-controller.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-client-popup-controller.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-topic-client-list-popup-controller.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-topic-service.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-topic-list-controller.js"></script>
+	<script src="app/dbcapp/messagerouter/mr-topic-popup-controller.js"></script>
+
+	<!-- user admin pages -->
+	<script src="app/fusion/scripts/DS2-services/adminService.js"></script>
+	<script src="app/fusion/scripts/DS2-services/ds2-profile/selfProfileService.js"></script> 
+	<script src="app/fusion/scripts/DS2-services/profileServiceDS2.js"></script>
+	<script src="app/fusion/scripts/DS2-controllers/ds-profile/post-controller.js"></script>
+	<script src="app/fusion/scripts/DS2-controllers/ds2-profile/self-profile-controller.js"></script> 
+	<script src="app/fusion/scripts/DS2-services/postSearch.js"></script>	  
+ 	<script src="app/fusion/scripts/DS2-controllers/profile-search-controller-DS2.js"></script>
+
+	<!-- app admin pages -->	
+	<script src="app/fusion/scripts/DS2-services/adminMenuService.js"></script>
+	<script src="app/fusion/scripts/DS2-controllers/admin-controller.js"></script>
+	<script src="app/fusion/scripts/DS2-controllers/admin-menu-edit.js"></script> 
+	<script src="app/fusion/scripts/DS2-controllers/usage-list-controller.js"></script>	  	
+	<script src="app/fusion/scripts/DS2-controllers/fn-menu-add-popup-controller.js"></script>
+	
+	<!-- main page -->
+	<script src="app/dbcapp/home/dbc-home-controller.js"></script>
+	<script src="app/dbcapp/home/dbc-spa-router.js"></script>
+
+	</head>
+	<body class="appBody" ng-app="abs">
+		<!-- double quotation marks are required for the popup templates - values are string literals! -->
+	    <div ng-include src="'app/dbcapp/home/dbc_popup_templates.html'"></div>
+	    <div ng-include src="'app/dbcapp/dmaapaccess/dmaap_access_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/datarouter/dr_feed_add_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/datarouter/dr_feed_edit_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/datarouter/dr_feed_pub_sub_list_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/datarouter/dr_pub_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/datarouter/dr_sub_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/messagerouter/mr_client_popup_template.html'"></div>
+	    <div ng-include src="'app/dbcapp/messagerouter/mr_topic_popup_template_edit.html'"></div>
+	    <div ng-include src="'app/dbcapp/messagerouter/mr_topic_popup_template_show.html'"></div>
+	    <div ng-include src="'app/dbcapp/messagerouter/mr_topic_client_list_popup_template.html'"></div>
+		<div ds2-header id="header" class="header-container"></div>
+		<div ds2-menu id="menu-container" class="menu-container"></div>
+		<div ng-view id="rightContentProfile" class="content-container"></div>		
+		<div ds2-footer class="footer-container"></div> 
+	</body>
+</html>

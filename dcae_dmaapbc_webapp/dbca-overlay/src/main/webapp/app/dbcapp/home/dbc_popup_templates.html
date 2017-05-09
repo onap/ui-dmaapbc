@@ -1,0 +1,65 @@
+<script type="text/ng-template" id="dbc_title_text_ok_modal.html">
+<div>
+	<div class="b2b-modal-header ng-scope in">
+		<h2 id="myModalLabel" modal-title="">{{msg.title}}</h2>
+		<div ng-class="msg.icon" style="font-size: 36px;"></div>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+	<div class="b2b-modal-body ng-scope ng-isolate-scope in" tabindex="0"
+		role="region" aria-label="Modal header text content">
+		<p style="word-wrap: break-word;">{{msg.text}}</p>
+	</div>
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope in">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+				ng-click="$dismiss('cancel')">OK</button>
+		</div>
+	</div>
+</div>
+</script>
+
+<script type="text/ng-template" id="dbc_title_text_ok_cancel_modal.html">
+<div>
+	<div class="b2b-modal-header ng-scope in">
+		<h2 id="myModalLabel" modal-title="">{{msg.title}}</h2>
+		<div ng-class="msg.icon" style="font-size: 36px;"></div>
+		<div class="corner-button in">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="$dismiss('cancel')"></button>
+		</div>
+	</div>
+	<div class="b2b-modal-body ng-scope ng-isolate-scope in" tabindex="0"
+		role="region" aria-label="Modal text content">
+		<p style="word-wrap: break-word;">{{msg.text}}</p>
+	</div>
+	<div class="b2b-modal-footer ng-scope ng-isolate-scope in">
+		<div class="cta-button-group in">
+			<button class="btn btn-alt btn-small" type="button"
+				ng-click="$close()">OK</button>
+			<button class="btn btn-small" type="button"
+				ng-click="$dismiss('cancel')">Cancel</button>
+		</div>
+	</div>
+</div>
+</script>
+
+<script type="text/ng-template" id="modal_warning.html">
+	<div class="modal__warning font-showcase" >
+ 		<div class="modal__header">
+			<h2 class="font-showcase-font-name">{{message.title}}</h2>		
+            <div class="modal__header--icon"></div>
+		</div>
+		<div class="divider-container"><hr> </div>      
+		<div class="modal__content" style="white-space: pre-wrap;">{{message.text}}<br/></div>
+		<div class="modal__footer">
+			<button class="button button--primary button--small" 
+					href="javascript:void(0)" 
+					ng-click="$dismiss()">
+				Dismiss
+			</button>
+ 		</div>
+	</div>
+</script>
