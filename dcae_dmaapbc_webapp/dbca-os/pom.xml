@@ -182,7 +182,6 @@
 	</dependencies>
 	
 	<distributionManagement>
-		<!-- Publish jars to the Nexus Repository - public group -->
 		<!-- The id below must match your .m2/settings.xml/servers/server/id -->
 		<repository>
 			<id>ecomp-releases</id>
@@ -194,6 +193,11 @@
 			<name>OpenECOMP - Snapshot Repository</name>
 			<url>${nexusproxy}/${snapshotNexusPath}</url>
 		</snapshotRepository>
+		<!-- Javadocs -->
+		<site>
+			<id>ecomp-site</id>
+			<url>dav:${nexusproxy}${sitePath}</url>
+		</site>
 	</distributionManagement>
 
 	<pluginRepositories>
