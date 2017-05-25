@@ -1,7 +1,5 @@
 <%--
   ================================================================================
-  ECOMP Portal SDK
-  ================================================================================
   Copyright (C) 2017 AT&T Intellectual Property
   ================================================================================
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -77,7 +75,7 @@
 	</head>
 	<body>
 		<div class="login">
-			<img src="app/dbcapp/images/ecomp_dcae_logo_360x218.png" />
+			<img src="app/dbcapp/images/onap_logo_2257x496.png" style="height: 150px;" />
 			<h2>
 				<%=appDisplayName%>
 			</h2>
