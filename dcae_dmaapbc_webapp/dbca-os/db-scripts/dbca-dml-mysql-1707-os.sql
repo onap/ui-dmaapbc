@@ -3,9 +3,7 @@
 -- in the 1707 release with data for the open-source ONAP version.
 --
 -- This file is suitable for deployment to Application Hosting in 1704 and later:
--- 1. This file does NOT name the database; i.e., no statements like this:
--- 			"use foo;"
--- 2. This file uses "--" not NOT "/* */" comment notation; i.e., no statements from mysqldump like this:
+-- This file uses "--" not NOT "/* */" comment notation; i.e., no statements from mysqldump like this:
 -- 			/*!40101 SET character_set_client = utf8 */; 
 -- 
 -- Most of the data loaded here is default data for the EP-SDK application (but much reduced).
