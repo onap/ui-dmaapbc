@@ -14,12 +14,11 @@
 		<encoding>UTF-8</encoding>
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
-		<epsdk.version>1.1.0-SNAPSHOT</epsdk.version>
+		<epsdk.version>1.1.0</epsdk.version>
 		<dbca.version>1.1.0-SNAPSHOT</dbca.version>
 		<skipTests>true</skipTests>
 		<nexusproxy>https://nexus.onap.org</nexusproxy>
 		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
-		<stagingNexusPath>/content/repositories/staging/</stagingNexusPath>
 		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
 	</properties>
 
@@ -27,10 +26,6 @@
 		<repository>
 			<id>snapshots-repo</id>
 			<url>${nexusproxy}${snapshotNexusPath}</url>
-		</repository>
-		<repository>
-			<id>staging-repo</id>
-			<url>${nexusproxy}${stagingNexusPath}</url>
 		</repository>
 		<repository>
 			<id>releases-repo</id>
