@@ -57,9 +57,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.1.0</version>
 				<configuration>
 					<archive>
+						<addMavenDescriptor>true</addMavenDescriptor>
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 						</manifest>
@@ -72,6 +73,9 @@
 						<overlay>
 							<groupId>org.openecomp.ui.dmaapbc</groupId>
 							<artifactId>dmaap-bc-app-overlay</artifactId>
+							<excludes>
+								<exclude>META-INF/MANIFEST.MF</exclude>
+							</excludes>
 						</overlay>
 						<overlay>
 							<groupId>org.openecomp.ecompsdkos</groupId>
@@ -88,8 +92,9 @@
 								<exclude>app/fusion/notebook-integration/**</exclude>
 								<exclude>static/fusion/**</exclude>
 								<exclude>static/js/**</exclude>
-								<exclude>WEB-INF/fusion/jsp/**</exclude>
+								<exclude>META-INF/MANIFEST.MF</exclude>
 								<exclude>WEB-INF/fusion/raptor/**</exclude>
+								<!-- do NOT exclude WEB-INF/fusion/jsp -->
 							</excludes>
 						</overlay>
 					</overlays>
@@ -145,10 +150,12 @@
 			<version>${epsdk.version}</version>
 			<type>jar</type>
 			<exclusions>
+				<!-- v1.1.0 has dependency on analytics
 				<exclusion>
 					<groupId>org.openecomp.ecompsdkos</groupId>
 					<artifactId>epsdk-analytics</artifactId>
 				</exclusion>
+				-->
 				<exclusion>
 					<groupId>org.openecomp.ecompsdkos</groupId>
 					<artifactId>epsdk-workflow</artifactId>
@@ -174,6 +181,12 @@
 					<artifactId>jest</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<!-- Use Mysql in ONAP -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.22</version>
 		</dependency>
 	</dependencies>
 	
