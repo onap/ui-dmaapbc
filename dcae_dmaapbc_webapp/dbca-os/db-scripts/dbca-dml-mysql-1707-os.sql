@@ -449,6 +449,12 @@ Insert into fn_user
 	values 
 	(1,null,null,'Super',null,'User','973-236-0000',null,null,'user@openecomp.org',null,null,null,'su1234',null,'demo','demo123456!',str_to_date('21-AUG-14','%d-%M-%Y'),'Y',null,str_to_date('15-DEC-05','%d-%M-%Y'),1,str_to_date('21-AUG-14','%d-%M-%Y'),'N',null,null,null,'NJ',null,'US',null,null,null,null,null,10,null,null,null,null,null,null)
 	;
+-- This row defines a demo user to match the demo user in Portal for ONAP.
+Insert into fn_user
+	(USER_ID,ORG_ID,MANAGER_ID,FIRST_NAME,MIDDLE_NAME,LAST_NAME,PHONE,FAX,CELLULAR,EMAIL,ADDRESS_ID,ALERT_METHOD_CD,HRID,ORG_USER_ID,ORG_CODE,LOGIN_ID,LOGIN_PWD,LAST_LOGIN_DATE,ACTIVE_YN,CREATED_ID,CREATED_DATE,MODIFIED_ID,MODIFIED_DATE,IS_INTERNAL_YN,ADDRESS_LINE_1,ADDRESS_LINE_2,CITY,STATE_CD,ZIP_CODE,COUNTRY_CD,LOCATION_CLLI,ORG_MANAGER_USERID,COMPANY,DEPARTMENT_NAME,JOB_TITLE,TIMEZONE,DEPARTMENT,BUSINESS_UNIT,BUSINESS_UNIT_NAME,COST_CENTER,FIN_LOC_CODE,SILO_STATUS) 
+	values
+	(1,null,null,'Demo',null,'User',null,null,null,null,null,null,null,'demo',null,'demo','demo',str_to_date('24-OCT-16','%d-%M-%Y'),'Y',null,str_to_date('17-OCT-16','%d-%M-%Y'),1,str_to_date('24-OCT-16','%d-%M-%Y'),'N',null,null,null,'NJ',null,'US',null,null,null,null,null,10,null,null,null,null,null,null)
+	;
 
 -- fn_app
 -- Use name "DMAAP-BC-APP" (originally "Default")
