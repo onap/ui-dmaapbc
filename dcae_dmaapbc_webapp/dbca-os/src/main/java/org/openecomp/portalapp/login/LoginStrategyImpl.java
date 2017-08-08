@@ -34,7 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class LoginStrategyImpl extends LoginStrategy {
 
-	private EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(LoginStrategyImpl.class);
+	private static EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(LoginStrategyImpl.class);
 
 	@Override
 	public ModelAndView doLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -45,8 +45,10 @@ public class LoginStrategyImpl extends LoginStrategy {
 	@Override
 	public String getUserId(HttpServletRequest request) throws PortalAPIException {
 		// Check ECOMP Portal cookie
-		if (!isLoginCookieExist(request))
+		if (!isLoginCookieExist(request)) {
+			logger.debug(EELFLoggerDelegate.debugLogger, "getUserId: no login cookie, returning null");
 			return null;
+		}
 
 		String userid = null;
 		try {
@@ -59,18 +61,18 @@ public class LoginStrategyImpl extends LoginStrategy {
 
 	private static String getUserIdFromCookie(HttpServletRequest request) throws Exception {
 		String userId = "";
-		Cookie[] cookies = request.getCookies();
-		Cookie userIdcookie = null;
-		if (cookies != null)
-			for (Cookie cookie : cookies)
-				if (cookie.getName().equals(USER_ID))
-					userIdcookie = cookie;
-		if (userIdcookie != null) {
-			userId = CipherUtil.decrypt(userIdcookie.getValue(),
-					PortalApiProperties.getProperty(PortalApiConstants.Decryption_Key));
+		Cookie userIdCookie = getCookie(request, USER_ID);
+		if (userIdCookie != null) {
+			final String cookieValue = userIdCookie.getValue();
+			final String decryptionKey = PortalApiProperties.getProperty(PortalApiConstants.Decryption_Key);
+			if (decryptionKey == null)
+				throw new Exception("Failed to find portal property " + PortalApiConstants.Decryption_Key);
+			logger.debug(EELFLoggerDelegate.debugLogger, "getUserIdFromCookie: decode cookie value {} using {}",
+					cookieValue, decryptionKey);
+			userId = CipherUtil.decrypt(cookieValue, decryptionKey);
+			logger.debug(EELFLoggerDelegate.debugLogger, "getUserIdFromCookie: decrypted as {}", userId);
 		}
 		return userId;
-
 	}
 
 	private static boolean isLoginCookieExist(HttpServletRequest request) {
@@ -84,7 +86,6 @@ public class LoginStrategyImpl extends LoginStrategy {
 			for (Cookie cookie : cookies)
 				if (cookie.getName().equals(cookieName))
 					return cookie;
-
 		return null;
 	}
 
