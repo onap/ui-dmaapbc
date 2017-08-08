@@ -28,25 +28,34 @@ import org.openecomp.portalsdk.core.auth.LoginStrategy;
 import org.openecomp.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.openecomp.portalsdk.core.onboarding.exception.PortalAPIException;
 import org.openecomp.portalsdk.core.onboarding.util.CipherUtil;
-import org.openecomp.portalsdk.core.onboarding.util.PortalApiConstants;
-import org.openecomp.portalsdk.core.onboarding.util.PortalApiProperties;
+import org.openecomp.portalsdk.core.util.SystemProperties;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Implements basic single-signon login strategy for open-source applications
+ * when users start at Portal. Extracts an encrypted user ID sent by Portal.
+ */
 public class LoginStrategyImpl extends LoginStrategy {
 
-	private EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(LoginStrategyImpl.class);
+	private static EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(LoginStrategyImpl.class);
 
+	/**
+	 * login for open source is same as external login in the non-open-source
+	 * version.
+	 */
 	@Override
 	public ModelAndView doLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 'login' for opensource is same as 'external' login.
 		return doExternalLogin(request, response);
 	}
 
 	@Override
 	public String getUserId(HttpServletRequest request) throws PortalAPIException {
 		// Check ECOMP Portal cookie
-		if (!isLoginCookieExist(request))
+		Cookie ep = getCookie(request, EP_SERVICE);
+		if (ep == null) {
+			logger.debug(EELFLoggerDelegate.debugLogger, "getUserId: no EP_SERVICE cookie, returning null");
 			return null;
+		}
 
 		String userid = null;
 		try {
@@ -57,34 +66,45 @@ public class LoginStrategyImpl extends LoginStrategy {
 		return userid;
 	}
 
-	private static String getUserIdFromCookie(HttpServletRequest request) throws Exception {
+	/**
+	 * Searches the request for the user-ID cookie and decrypts the value using a
+	 * key configured in properties
+	 * 
+	 * @param request
+	 *            HttpServletRequest
+	 * @return User ID
+	 * @throws Exception
+	 *             On any failure
+	 */
+	private String getUserIdFromCookie(HttpServletRequest request) throws Exception {
 		String userId = "";
-		Cookie[] cookies = request.getCookies();
-		Cookie userIdcookie = null;
-		if (cookies != null)
-			for (Cookie cookie : cookies)
-				if (cookie.getName().equals(USER_ID))
-					userIdcookie = cookie;
-		if (userIdcookie != null) {
-			userId = CipherUtil.decrypt(userIdcookie.getValue(),
-					PortalApiProperties.getProperty(PortalApiConstants.Decryption_Key));
+		Cookie userIdCookie = getCookie(request, USER_ID);
+		if (userIdCookie != null) {
+			final String cookieValue = userIdCookie.getValue();
+			if (!SystemProperties.containsProperty(SystemProperties.Decryption_Key))
+				throw new Exception("Failed to find property " + SystemProperties.Decryption_Key);
+			final String decryptionKey = SystemProperties.getProperty(SystemProperties.Decryption_Key);
+			userId = CipherUtil.decrypt(cookieValue, decryptionKey);
+			logger.debug(EELFLoggerDelegate.debugLogger, "getUserIdFromCookie: decrypted as {}", userId);
 		}
 		return userId;
-
 	}
 
-	private static boolean isLoginCookieExist(HttpServletRequest request) {
-		Cookie ep = getCookie(request, EP_SERVICE);
-		return (ep != null);
-	}
-
-	private static Cookie getCookie(HttpServletRequest request, String cookieName) {
+	/**
+	 * Searches the request for the named cookie.
+	 * 
+	 * @param request
+	 *            HttpServletRequest
+	 * @param cookieName
+	 *            Name of desired cookie
+	 * @return Cookie if found; otherwise null.
+	 */
+	private Cookie getCookie(HttpServletRequest request, String cookieName) {
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null)
 			for (Cookie cookie : cookies)
 				if (cookie.getName().equals(cookieName))
 					return cookie;
-
 		return null;
 	}
 
