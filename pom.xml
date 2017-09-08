@@ -6,7 +6,7 @@
         <artifactId>dcae_dmaapbc_webapp</artifactId>
         <version>0</version>
         <packaging>pom</packaging>
-        <name>DCAE DMaaP Bus Controller Webapp</name>
+        <name>ui-dmaapbc</name>
 
         <modules>
                 <module>dcae_dmaapbc_webapp</module>
