@@ -6,7 +6,7 @@
 	<packaging>pom</packaging>
 	<!-- NOTE This value will not be picked from the property tag below, pass it as -Drelease.version="" when doing mvn deploy -->
 	<version>1.0.0</version>
-	<name>DMaaP Bus Controller UI (parent)</name>
+	<name>ui-dmaapbc</name>
 	<url>https://wiki/display/EcompPortal</url>
 	<description>DCAE DMaaP Bus Controller GUI based on the ECOMP Portal Open-Source SDK</description>
 	<scm>
