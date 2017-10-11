@@ -29,12 +29,12 @@
 		<repository>
 			<!-- Snapshots repository has ECOMP snapshot artifacts -->
 			<id>ecomp-snapshots</id>
-			<url>${nexusproxy}/${snapshotNexusPath}</url>
+			<url>${nexusproxy}${snapshotNexusPath}</url>
 		</repository>
 		<repository>
 			<!-- Releases repository has ECOMP release artifacts -->
 			<id>ecomp-releases</id>
-			<url>${nexusproxy}/${releaseNexusPath}</url>
+			<url>${nexusproxy}${releaseNexusPath}</url>
 		</repository>
 	</repositories>
 
@@ -84,17 +84,20 @@
 								<exclude>app/fusionapp/**</exclude>
 								<exclude>app/fusion/ase/**</exclude>
 								<exclude>app/fusion/external/angular-1.5/**</exclude>
+								<!-- do NOT exclude app/fusion/external/ebz -->
 								<exclude>app/fusion/external/gis/**</exclude>
 								<exclude>app/fusion/external/leaflet-0.7.3/**</exclude>
 								<exclude>app/fusion/external/lodash/**</exclude>
 								<exclude>app/fusion/external/samples/**</exclude>
 								<exclude>app/fusion/external/showdown/**</exclude>
 								<exclude>app/fusion/notebook-integration/**</exclude>
-								<exclude>static/fusion/**</exclude>
-								<exclude>static/js/**</exclude>
+								<exclude>static/fusion/raptor</exclude>
+								<exclude>static/fusion/sample</exclude>
+								<!-- do NOT exclude static/js/** -->
 								<exclude>META-INF/MANIFEST.MF</exclude>
 								<exclude>WEB-INF/fusion/raptor/**</exclude>
 								<!-- do NOT exclude WEB-INF/fusion/jsp -->
+								<!-- do NOT exclude WEB-INF/fusion/orm -->
 							</excludes>
 						</overlay>
 					</overlays>
@@ -200,14 +203,14 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- Use Mysql in ONAP -->
+		<!-- Use Mariadb in ONAP -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.22</version>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>1.5.8</version>
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
 		<!-- The id below must match your .m2/settings.xml/servers/server/id -->
 		<repository>
@@ -241,5 +244,5 @@
 			<url>http://maven.restlet.com</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 </project>

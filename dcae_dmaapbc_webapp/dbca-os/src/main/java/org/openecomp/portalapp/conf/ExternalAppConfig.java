@@ -22,8 +22,6 @@ package org.openecomp.portalapp.conf;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openecomp.portalapp.controller.sample.ElasticSearchController;
-import org.openecomp.portalapp.controller.sample.PostDroolsController;
 import org.openecomp.portalapp.lm.FusionLicenseManagerImpl;
 import org.openecomp.portalapp.login.LoginStrategyImpl;
 import org.openecomp.portalapp.scheduler.LogRegistry;
@@ -34,10 +32,7 @@ import org.openecomp.portalsdk.core.lm.FusionLicenseManager;
 import org.openecomp.portalsdk.core.lm.FusionLicenseManagerUtils;
 import org.openecomp.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.openecomp.portalsdk.core.objectcache.AbstractCacheManager;
-import org.openecomp.portalsdk.core.scheduler.CoreRegister;
-import org.openecomp.portalsdk.core.scheduler.CronRegistry;
 import org.openecomp.portalsdk.core.service.DataAccessService;
-import org.openecomp.portalsdk.core.service.PostDroolsService;
 import org.openecomp.portalsdk.core.util.CacheManager;
 import org.openecomp.portalsdk.core.util.SystemProperties;
 import org.springframework.context.annotation.Bean;
@@ -54,16 +49,30 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 /**
- * ECOMP Portal SDK sample application. ECOMP Portal SDK core AppConfig class to
- * reuse interceptors, view resolvers and other features defined there.
+ * Configures Spring features in the DMaaP Bus Control web application.
+ * Subclasses the ECOMP Portal SDK core AppConfig class to reuse interceptors,
+ * view resolvers and other features defined there.
  */
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "org.openecomp",
 		// Exclude unused annotated classes with heavy dependencies.
-		excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = { CoreRegister.class,
-				CronRegistry.class, ElasticSearchController.class, LogRegistry.class, PostDroolsController.class,
-				PostDroolsService.class }))
+		excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {
+				// EPSDK-Analytics
+				org.openecomp.portalsdk.analytics.system.fusion.adapter.FusionAdapter.class,
+				org.openecomp.portalsdk.analytics.system.fusion.adapter.RaptorAdapter.class,
+				org.openecomp.portalsdk.analytics.system.fusion.web.RaptorController.class,
+				org.openecomp.portalsdk.analytics.system.fusion.web.RaptorControllerAsync.class,
+				org.openecomp.portalsdk.analytics.system.fusion.DbUtils.class,
+				// EPSDK-App-Common
+				org.openecomp.portalapp.controller.sample.ElasticSearchController.class, 
+				LogRegistry.class, 
+				org.openecomp.portalapp.controller.sample.PostDroolsController.class,
+				// EPSDK-Core
+				org.openecomp.portalsdk.core.scheduler.CoreRegister.class,
+				org.openecomp.portalsdk.core.scheduler.CronRegistry.class,
+				org.openecomp.portalsdk.core.service.PostDroolsService.class 
+				}))
 @Profile("src")
 @EnableAsync
 @EnableScheduling
