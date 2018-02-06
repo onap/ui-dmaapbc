@@ -25,7 +25,7 @@ package org.openecomp.dcae.dmaapbc.model;
 public abstract class DmaapObject {
 
 	public enum Dmaap_Status {
-		EMPTY, NEW, STAGED, VALID, INVALID //, DELETED
+		EMPTY, NEW, STAGED, VALID, INVALID, DELETED
 	}
 
 	/** time stamp when object was last modified */
