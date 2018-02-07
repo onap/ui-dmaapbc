@@ -451,7 +451,7 @@ Insert into fn_user
 
 -- fn_app
 -- Use name "DMAAP-BC-APP" (originally "Default")
-Insert into fn_app (APP_ID,APP_NAME,APP_IMAGE_URL,APP_DESCRIPTION,APP_NOTES,APP_URL,APP_ALTERNATE_URL,APP_REST_ENDPOINT,ML_APP_NAME,ML_APP_ADMIN_ID,MOTS_ID,APP_PASSWORD,OPEN,ENABLED,THUMBNAIL,APP_USERNAME,UEB_KEY,UEB_SECRET,UEB_TOPIC_NAME) VALUES (1,'DMAAP-BC-APP','assets/images/tmp/portal1.png','Some Default Description','Some Default Note','http://www.openecomp.org','http://www.openecomp.org',null,'ECPP','?','1','okYTaDrhzibcbGVq5mjkVQ==','N','N',null,'Default',null,null,'ECOMP-PORTAL-INBOX');
+Insert into fn_app (APP_ID,APP_NAME,APP_IMAGE_URL,APP_DESCRIPTION,APP_NOTES,APP_URL,APP_ALTERNATE_URL,APP_REST_ENDPOINT,ML_APP_NAME,ML_APP_ADMIN_ID,MOTS_ID,APP_PASSWORD,OPEN,ENABLED,THUMBNAIL,APP_USERNAME,UEB_KEY,UEB_SECRET,UEB_TOPIC_NAME) VALUES (1,'DMAAP-BC-APP','assets/images/tmp/portal1.png','Some Default Description','Some Default Note','http://www.onap.org','http://www.onap.org',null,'ECPP','?','1','okYTaDrhzibcbGVq5mjkVQ==','N','N',null,'Default',null,null,'ECOMP-PORTAL-INBOX');
 
 -- fn_user_role
 Insert into fn_user_role (USER_ID,ROLE_ID,PRIORITY,APP_ID) values (1,1,null,1);

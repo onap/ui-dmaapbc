@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="org.openecomp.dcae.dmaapbc.dbcapp.domain">
+<hibernate-mapping package="org.onap.dcae.dmaapbc.dbcapp.domain">
 
      <!-- class mapping details -->
     <class name="DmaapAccess" table="DBCA_DMAAP_ACCESS ">

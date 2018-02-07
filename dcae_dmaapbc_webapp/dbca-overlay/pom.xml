@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.openecomp.ui.dmaapbc</groupId>
+	<groupId>org.onap.ui.dmaapbc</groupId>
 	<artifactId>dmaap-bc-app-overlay</artifactId>
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>DCAE DMaaP Bus Controller Webapp Common Web Files</name>
 	<description>Web resource overlay for the DCAE DMaaP Bus Controller GUI</description>

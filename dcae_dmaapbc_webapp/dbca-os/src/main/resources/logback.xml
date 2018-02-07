@@ -80,7 +80,7 @@
     <encoder>
       <pattern>${applicationLoggerPattern}</pattern>
     </encoder>
-    <filter class="org.openecomp.fusionapp.util.CustomLoggingFilter" />
+    <filter class="org.onap.fusionapp.util.CustomLoggingFilter" />
   </appender>
   
   <appender name="asyncEELF" class="ch.qos.logback.classic.AsyncAppender">
