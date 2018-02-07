@@ -3,9 +3,9 @@
         <modelVersion>4.0.0</modelVersion>
 
         <!-- DMAAP-BC webapp parent project for developer convenience of building and cleaning -->
-        <groupId>org.openecomp.dcae.dmaapbc</groupId>
+        <groupId>org.onap.dcae.dmaapbc</groupId>
         <artifactId>dmaap-bc-app-parent</artifactId>
-        <version>0</version>
+        <version>1</version>
         <packaging>pom</packaging>
         <name>DCAE DMaaP Bus Controller Webapp projects (parent)</name>
 
