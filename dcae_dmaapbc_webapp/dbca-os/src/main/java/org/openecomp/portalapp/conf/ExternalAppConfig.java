@@ -55,7 +55,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.openecomp",
+@ComponentScan(basePackages = "org.openecomp, org.onap",
 		// Exclude unused annotated classes with heavy dependencies.
 		excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {
 				// EPSDK-Analytics

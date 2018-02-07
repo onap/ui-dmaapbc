@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.openecomp.ui.dmaapbc</groupId>
+	<groupId>org.onap.ui.dmaapbc</groupId>
 	<artifactId>dmaap-bc-app-os</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>war</packaging>
 	<name>DCAE DMaaP Bus Controller Webapp for ONAP</name>
 	<description>DMaaP Bus Controller Web Application for open-source release</description>
@@ -17,12 +17,12 @@
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
 		<epsdk.version>1.1.0</epsdk.version>
-		<dbca.version>1.1.0-SNAPSHOT</dbca.version>
+		<dbca.version>1.2.0-SNAPSHOT</dbca.version>
 		<sonar.exclusions>**.js</sonar.exclusions>
 		<nexusproxy>https://nexus.onap.org</nexusproxy>
 		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
 		<releaseNexusPath>/content/repositories/releases/</releaseNexusPath>
-		<sitePath>/content/sites/site/org/openecomp/ui/dmaapbc/${project.version}</sitePath>
+		<sitePath>/content/sites/site/org/onap/ui/dmaapbc/${project.version}</sitePath>
 	</properties>
 
 	<repositories>
@@ -71,7 +71,7 @@
 					</archive>
 					<overlays>
 						<overlay>
-							<groupId>org.openecomp.ui.dmaapbc</groupId>
+							<groupId>org.onap.ui.dmaapbc</groupId>
 							<artifactId>dmaap-bc-app-overlay</artifactId>
 							<excludes>
 								<exclude>META-INF/MANIFEST.MF</exclude>
@@ -137,14 +137,14 @@
 	<dependencies>
 		<!-- DMaaP webapp controllers -->
 		<dependency>
-			<groupId>org.openecomp.ui.dmaapbc</groupId>
+			<groupId>org.onap.ui.dmaapbc</groupId>
 			<artifactId>dmaap-bc-app-common</artifactId>
 			<version>${dbca.version}</version>
 			<type>jar</type>
 		</dependency>
 		<!-- DMaaP webapp overlay -->
 		<dependency>
-			<groupId>org.openecomp.ui.dmaapbc</groupId>
+			<groupId>org.onap.ui.dmaapbc</groupId>
 			<artifactId>dmaap-bc-app-overlay</artifactId>
 			<version>${dbca.version}</version>
 			<type>war</type>

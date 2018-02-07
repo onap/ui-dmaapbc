@@ -54,7 +54,7 @@ public class HibernateMappingLocations implements HibernateMappingLocatable {
 	 */
 	@Override
 	public String[] getPackagesToScan() {
-		return new String[] { "org.openecomp" };
+		return new String[] { "org.onap", "org.openecomp" };
 	}
 
 }
