@@ -24,11 +24,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.openecomp.portalsdk.core.auth.LoginStrategy;
-import org.openecomp.portalsdk.core.logging.logic.EELFLoggerDelegate;
-import org.openecomp.portalsdk.core.onboarding.exception.PortalAPIException;
-import org.openecomp.portalsdk.core.onboarding.util.CipherUtil;
-import org.openecomp.portalsdk.core.util.SystemProperties;
+import org.onap.portalsdk.core.auth.LoginStrategy;
+import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
+import org.onap.portalsdk.core.onboarding.exception.PortalAPIException;
+import org.onap.portalsdk.core.onboarding.util.CipherUtil;
+import org.onap.portalsdk.core.util.SystemProperties;
 import org.springframework.web.servlet.ModelAndView;
 
 /**

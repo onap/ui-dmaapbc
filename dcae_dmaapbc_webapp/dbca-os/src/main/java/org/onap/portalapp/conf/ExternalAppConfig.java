@@ -24,17 +24,15 @@ import java.util.List;
 
 import org.onap.portalapp.lm.FusionLicenseManagerImpl;
 import org.onap.portalapp.login.LoginStrategyImpl;
-import org.openecomp.portalapp.scheduler.LogRegistry;
-import org.openecomp.portalsdk.core.auth.LoginStrategy;
-import org.openecomp.portalsdk.core.conf.AppConfig;
-import org.openecomp.portalsdk.core.conf.Configurable;
-import org.openecomp.portalsdk.core.lm.FusionLicenseManager;
-import org.openecomp.portalsdk.core.lm.FusionLicenseManagerUtils;
-import org.openecomp.portalsdk.core.logging.logic.EELFLoggerDelegate;
-import org.openecomp.portalsdk.core.objectcache.AbstractCacheManager;
-import org.openecomp.portalsdk.core.service.DataAccessService;
-import org.openecomp.portalsdk.core.util.CacheManager;
-import org.openecomp.portalsdk.core.util.SystemProperties;
+import org.onap.portalapp.scheduler.LogRegistry;
+import org.onap.portalsdk.core.auth.LoginStrategy;
+import org.onap.portalsdk.core.conf.AppConfig;
+import org.onap.portalsdk.core.conf.Configurable;
+import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
+import org.onap.portalsdk.core.objectcache.AbstractCacheManager;
+import org.onap.portalsdk.core.service.DataAccessService;
+import org.onap.portalsdk.core.util.CacheManager;
+import org.onap.portalsdk.core.util.SystemProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -59,19 +57,19 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 		// Exclude unused annotated classes with heavy dependencies.
 		excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {
 				// EPSDK-Analytics
-				org.openecomp.portalsdk.analytics.system.fusion.adapter.FusionAdapter.class,
-				org.openecomp.portalsdk.analytics.system.fusion.adapter.RaptorAdapter.class,
-				org.openecomp.portalsdk.analytics.system.fusion.web.RaptorController.class,
-				org.openecomp.portalsdk.analytics.system.fusion.web.RaptorControllerAsync.class,
-				org.openecomp.portalsdk.analytics.system.fusion.DbUtils.class,
+				org.onap.portalsdk.analytics.system.fusion.adapter.FusionAdapter.class,
+				org.onap.portalsdk.analytics.system.fusion.adapter.RaptorAdapter.class,
+				org.onap.portalsdk.analytics.system.fusion.web.RaptorController.class,
+				org.onap.portalsdk.analytics.system.fusion.web.RaptorControllerAsync.class,
+				org.onap.portalsdk.analytics.system.fusion.DbUtils.class,
 				// EPSDK-App-Common
-				org.openecomp.portalapp.controller.sample.ElasticSearchController.class, 
+				org.onap.portalapp.controller.sample.ElasticSearchController.class, 
 				LogRegistry.class, 
-				org.openecomp.portalapp.controller.sample.PostDroolsController.class,
+				org.onap.portalapp.controller.sample.PostDroolsController.class,
 				// EPSDK-Core
-				org.openecomp.portalsdk.core.scheduler.CoreRegister.class,
-				org.openecomp.portalsdk.core.scheduler.CronRegistry.class,
-				org.openecomp.portalsdk.core.service.PostDroolsService.class 
+				org.onap.portalsdk.core.scheduler.CoreRegister.class,
+				org.onap.portalsdk.core.scheduler.CronRegistry.class,
+				org.onap.portalsdk.core.service.PostDroolsService.class 
 				}))
 @Profile("src")
 @EnableAsync
@@ -87,7 +85,7 @@ public class ExternalAppConfig extends AppConfig implements Configurable {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.openecomp.portalsdk.core.conf.AppConfig#viewResolver()
+	 * @see org.onap.portalsdk.core.conf.AppConfig#viewResolver()
 	 */
 	public ViewResolver viewResolver() {
 		return super.viewResolver();
@@ -95,7 +93,7 @@ public class ExternalAppConfig extends AppConfig implements Configurable {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.openecomp.portalsdk.core.conf.AppConfig#addResourceHandlers(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry)
+	 * @see org.onap.portalsdk.core.conf.AppConfig#addResourceHandlers(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry)
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -104,7 +102,7 @@ public class ExternalAppConfig extends AppConfig implements Configurable {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.openecomp.portalsdk.core.conf.AppConfig#dataAccessService()
+	 * @see org.onap.portalsdk.core.conf.AppConfig#dataAccessService()
 	 */
 	@Override
 	public DataAccessService dataAccessService() {
@@ -154,6 +152,7 @@ public class ExternalAppConfig extends AppConfig implements Configurable {
 		return new CacheManager();
 	}
 
+/*
 	@Bean
 	public FusionLicenseManager fusionLicenseManager() {
 		return new FusionLicenseManagerImpl();
@@ -163,6 +162,7 @@ public class ExternalAppConfig extends AppConfig implements Configurable {
 	public FusionLicenseManagerUtils fusionLicenseManagerUtils() {
 		return new FusionLicenseManagerUtils();
 	}
+*/
 
 	@Bean
 	public LoginStrategy loginStrategy() {
