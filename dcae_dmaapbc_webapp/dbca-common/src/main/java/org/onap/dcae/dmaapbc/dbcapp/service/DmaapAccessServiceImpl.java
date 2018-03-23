@@ -7,7 +7,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.onap.dcae.dmaapbc.dbcapp.domain.DmaapAccess;
 import org.onap.dcae.dmaapbc.dbcapp.domain.ManifestTransportModel;
-import org.openecomp.portalsdk.core.service.DataAccessService;
+import org.onap.portalsdk.core.service.DataAccessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

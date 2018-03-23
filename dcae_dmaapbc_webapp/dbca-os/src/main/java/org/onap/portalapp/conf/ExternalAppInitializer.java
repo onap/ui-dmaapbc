@@ -19,7 +19,7 @@
  */
 package org.onap.portalapp.conf;
 
-import org.openecomp.portalsdk.core.conf.AppInitializer;
+import org.onap.portalsdk.core.conf.AppInitializer;
 
 public class ExternalAppInitializer extends AppInitializer {
 

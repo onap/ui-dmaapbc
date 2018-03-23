@@ -14,7 +14,7 @@
 		<encoding>UTF-8</encoding>
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
-		<epsdk.version>1.1.0</epsdk.version>
+		<epsdk.version>2.2.0-SNAPSHOT</epsdk.version>
 		<dbca.version>1.2.0-SNAPSHOT</dbca.version>
 		<skipTests>true</skipTests>
 		<nexusproxy>https://nexus.onap.org</nexusproxy>
@@ -111,7 +111,7 @@
 	<dependencies>
 		<!-- SDK components -->
 		<dependency>
-			<groupId>org.openecomp.ecompsdkos</groupId>
+			<groupId>org.onap.portal.sdk</groupId>
 			<artifactId>epsdk-core</artifactId>
 			<version>${epsdk.version}</version>
 			<exclusions>

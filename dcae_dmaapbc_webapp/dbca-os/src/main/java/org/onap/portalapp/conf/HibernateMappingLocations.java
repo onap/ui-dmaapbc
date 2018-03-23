@@ -24,7 +24,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-import org.openecomp.portalsdk.core.conf.HibernateMappingLocatable;
+import org.onap.portalsdk.core.conf.HibernateMappingLocatable;
 
 @Component
 @Profile("src")

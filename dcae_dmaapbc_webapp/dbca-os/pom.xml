@@ -16,7 +16,7 @@
 		<skiptests>true</skiptests>
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
-		<epsdk.version>2.2.0-SNAPSHOT</epsdk.version>
+		<epsdk.version>2.2.0-SNAPSHOT</epsdk.version> 
 		<dbca.version>1.2.0-SNAPSHOT</dbca.version>
 		<sonar.exclusions>**.js</sonar.exclusions>
 		<nexusproxy>https://nexus.onap.org</nexusproxy>

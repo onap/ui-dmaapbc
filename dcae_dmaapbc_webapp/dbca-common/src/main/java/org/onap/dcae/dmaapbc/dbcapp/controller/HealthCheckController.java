@@ -5,9 +5,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.onap.dcae.dmaapbc.dbcapp.service.DmaapAccessService;
-import org.openecomp.portalsdk.core.controller.UnRestrictedBaseController;
-import org.openecomp.portalsdk.core.logging.logic.EELFLoggerDelegate;
-import org.openecomp.portalsdk.core.util.SystemProperties;
+import org.onap.portalsdk.core.controller.UnRestrictedBaseController;
+import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
+import org.onap.portalsdk.core.util.SystemProperties;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

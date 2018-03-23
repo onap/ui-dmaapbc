@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.openecomp.portalsdk.core.conf.AppConfig;
-import org.openecomp.portalsdk.core.objectcache.AbstractCacheManager;
-import org.openecomp.portalsdk.core.util.CacheManager;
-import org.openecomp.portalsdk.core.util.SystemProperties;
+import org.onap.portalsdk.core.conf.AppConfig;
+import org.onap.portalsdk.core.objectcache.AbstractCacheManager;
+import org.onap.portalsdk.core.util.CacheManager;
+import org.onap.portalsdk.core.util.SystemProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

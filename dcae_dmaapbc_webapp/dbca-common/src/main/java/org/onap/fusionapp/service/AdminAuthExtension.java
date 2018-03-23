@@ -1,6 +1,6 @@
 package org.onap.fusionapp.service;
 
-import org.openecomp.portalsdk.core.domain.User;
+import org.onap.portalsdk.core.domain.User;
 
 //@Service("adminAuthExtension")
 //@Transactional

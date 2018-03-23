@@ -22,7 +22,6 @@ package org.onap.portalapp.conf;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.onap.portalapp.lm.FusionLicenseManagerImpl;
 import org.onap.portalapp.login.LoginStrategyImpl;
 import org.onap.portalapp.scheduler.LogRegistry;
 import org.onap.portalsdk.core.auth.LoginStrategy;

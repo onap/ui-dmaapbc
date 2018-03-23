@@ -1,7 +1,7 @@
 package org.onap.dcae.dmaapbc.dbcapp.domain;
 
-import org.openecomp.portalsdk.core.domain.support.DomainVo;
-import org.openecomp.portalsdk.core.onboarding.util.CipherUtil;
+import org.onap.portalsdk.core.domain.support.DomainVo;
+import org.onap.portalsdk.core.onboarding.util.CipherUtil;
 
 /**
  * Hold an access profile for a DMaaP REST endpoint. Represents one row in the
