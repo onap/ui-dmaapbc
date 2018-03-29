@@ -33,6 +33,23 @@
       "revId": "8955d49382c04907a82995018b896281d0f5130f",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_17ab3e8a",
+        "filename": "dcae_dmaapbc_webapp/dbca-os/src/main/java/org/onap/portalapp/conf/ExternalAppConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2018-03-29T13:33:05Z",
+      "side": 1,
+      "message": "Remove code, don\u0027t comment out",
+      "revId": "8955d49382c04907a82995018b896281d0f5130f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
