@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_77bde2d6",
+        "filename": "dcae_dmaapbc_webapp/dbca-os/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2018-03-29T13:32:23Z",
+      "side": 1,
+      "message": "I think version 2.2.0 is released, right?  Avoid snapshot if at possible!",
+      "revId": "8955d49382c04907a82995018b896281d0f5130f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_37b75af7",
+        "filename": "dcae_dmaapbc_webapp/dbca-os/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2018-03-29T13:32:23Z",
+      "side": 1,
+      "message": "This bug should have been fixed by now??",
+      "revId": "8955d49382c04907a82995018b896281d0f5130f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
