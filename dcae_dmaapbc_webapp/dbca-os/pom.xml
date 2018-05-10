@@ -5,7 +5,7 @@
 
 	<groupId>org.onap.ui.dmaapbc</groupId>
 	<artifactId>dmaap-bc-app-os</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.2.0</version>
 	<packaging>war</packaging>
 	<name>DCAE DMaaP Bus Controller Webapp for ONAP</name>
 	<description>DMaaP Bus Controller Web Application for open-source release</description>
@@ -16,8 +16,8 @@
 		<skiptests>true</skiptests>
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
-		<epsdk.version>2.2.0-SNAPSHOT</epsdk.version> 
-		<dbca.version>1.2.0-SNAPSHOT</dbca.version>
+		<epsdk.version>2.2.0</epsdk.version> 
+		<dbca.version>1.2.0</dbca.version>
 		<sonar.exclusions>**.js</sonar.exclusions>
 		<nexusproxy>https://nexus.onap.org</nexusproxy>
 		<snapshotNexusPath>/content/repositories/snapshots/</snapshotNexusPath>
