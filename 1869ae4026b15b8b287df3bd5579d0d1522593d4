@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_33bf40ac",
+        "filename": "dcae_dmaapbc_webapp/dbca-os/src/main/java/org/openecomp/portalapp/conf/ExternalAppConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1111
+      },
+      "writtenOn": "2020-04-03T13:20:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_733948d6",
+      "revId": "1869ae4026b15b8b287df3bd5579d0d1522593d4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_133244f2",
         "filename": "dcae_dmaapbc_webapp/dbca-os/src/main/java/org/openecomp/portalapp/conf/HibernateMappingLocations.java",
         "patchSetId": 1
@@ -64,6 +82,24 @@
       "writtenOn": "2018-02-08T15:27:12Z",
       "side": 1,
       "message": "You may (may!) want to publish the version number here, refactor the submodules to name this parent properly, and avoid the redundancy currently in the POM files.",
+      "revId": "1869ae4026b15b8b287df3bd5579d0d1522593d4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1391e4f0",
+        "filename": "dcae_dmaapbc_webapp/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1111
+      },
+      "writtenOn": "2020-04-03T13:20:25Z",
+      "side": 1,
+      "message": "I will punt on this for now.",
+      "parentUuid": "5a93c517_b35a7028",
       "revId": "1869ae4026b15b8b287df3bd5579d0d1522593d4",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
